@@ -1,6 +1,7 @@
 package it.uniroma3.siw.centri.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,20 +19,24 @@ public class AttivitaService {
 		attivitaRepository.delete(attivita);
 	}
 
-	public List<Attivita> findAll() {
-		return (List<Attivita>) attivitaRepository.findAll();
-	}
-
 	public void deleteById(Long id) {
 		attivitaRepository.deleteById(id);
 	}
-
-	public Attivita findById(Long id) {
-		return attivitaRepository.findById(id).get();
+	
+	public boolean existsById(Long id) {
+		return attivitaRepository.existsById(id);
 	}
 
-	public void save(Attivita attivita) {
-		attivitaRepository.save(attivita);
+	public List<Attivita> findAll() {
+		return attivitaRepository.findAll();
+	}
+
+	public Optional<Attivita> findById(Long id) {
+		return attivitaRepository.findById(id);
+	}
+
+	public Attivita save(Attivita attivita) {
+		return attivitaRepository.save(attivita);
 	}
 
 }
