@@ -1,6 +1,7 @@
 package it.uniroma3.siw.centri.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,15 +22,16 @@ public class CentroService {
 		centroRepository.deleteById(nome);
 	}
 
-	public Centro findById(String nome) {
-		return centroRepository.findById(nome).get();
-	}
-
-	public void save(Centro centro) {
-		centroRepository.save(centro);
-	}
-
 	public List<Centro> findAll() {
-		return (List<Centro>) centroRepository.findAll();
+		return centroRepository.findAll();
 	}
+
+	public Optional<Centro> findById(String nome) {
+		return centroRepository.findById(nome);
+	}
+
+	public Centro save(Centro centro) {
+		return centroRepository.save(centro);
+	}
+
 }
