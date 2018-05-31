@@ -15,7 +15,7 @@ public interface AllievoRepository extends CrudRepository<Allievo, String> {
 
 	public void deleteById(String email);
 
-	public boolean existsById(Allievo allievo);
+	public boolean existsById(String email);
 
 	public List<Allievo> findAll();
 

@@ -22,6 +22,10 @@ public class AttivitaService {
 	public void deleteById(Long id) {
 		attivitaRepository.deleteById(id);
 	}
+	
+	public boolean existsById(Long id) {
+		return attivitaRepository.existsById(id);
+	}
 
 	public List<Attivita> findAll() {
 		return attivitaRepository.findAll();
