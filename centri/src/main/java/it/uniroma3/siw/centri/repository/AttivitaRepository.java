@@ -13,7 +13,7 @@ public interface AttivitaRepository extends CrudRepository<Attivita, Long> {
 
 	public void deleteById(Long id);
 
-	public boolean existsById(Attivita attivita);
+	public boolean existsById(Long id);
 
 	public List<Attivita> findAll();
 
