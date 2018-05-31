@@ -1,173 +1,196 @@
 <!DOCTYPE HTML>
-<!--
-	Retrospect by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
+
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Retrospect by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" type="text/css" media="all" href="../static/css/main.css" th:href="@{/css/main.css}" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<!-- <link rel="stylesheet" href="../assets/css/main.css" type="text/css" /> -->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<title>Home Page</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->       
+        <script type="text/javascript" th:src="@{js/skel.min.js}"></script>
+        <script type="text/javascript" th:src="@{js/skel-panels.min.js}"></script>
+        <script type="text/javascript" th:src="@{js/init.js}"></script>
+		<link rel="stylesheet" type="text/css" media="all" href="../static/css/styke.css" th:href="@{/css/style.css}" />
+		<link rel="stylesheet" type="text/css" media="all" href="../static/css/skel-noscript.css" th:href="@{/css/skel-noscript.css}" />
+		<link rel="stylesheet" type="text/css" media="all" href="../static/css/style-desktop.css" th:href="@{/css/style-desktop.css}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	</head>
-	<body class="landing">
+	<body class="homepage">
 
-		<!-- Header -->
-			<header id="header" class="alt">
-				<h1><a href="index.html">Retrospect</a></h1>
-				<a href="#nav">Menu</a>
-			</header>
-
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
-				</ul>
-			</nav>
-
-		<!-- Banner -->
-			<section id="banner">
-				<i class="icon fa-diamond"></i>
-				<h2>Etiam adipiscing</h2>
-				<p>Magna feugiat lorem dolor egestas</p>
-				<ul class="actions">
-					<li><a href="#" class="button big special">Learn More</a></li>
-				</ul>
-			</section>
-
-		<!-- One -->
-			<section id="one" class="wrapper style1">
-				<div class="inner">
-					<article class="feature left">
-						<span class="image"><img src="images/pic01.jpg" alt="" /></span>
-						<div class="content">
-							<h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-							<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
-							<ul class="actions">
-								<li>
-									<a href="#" class="button alt">More</a>
-								</li>
-							</ul>
-						</div>
-					</article>
-					<article class="feature right">
-						<span class="image"><img src="images/pic02.jpg" alt="" /></span>
-						<div class="content">
-							<h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-							<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
-							<ul class="actions">
-								<li>
-									<a href="#" class="button alt">More</a>
-								</li>
-							</ul>
-						</div>
-					</article>
-				</div>
-			</section>
-
-		<!-- Two -->
-			<section id="two" class="wrapper special">
-				<div class="inner">
-					<header class="major narrow">
-						<h2>Aliquam Blandit Mauris</h2>
-						<p>Ipsum dolor tempus commodo turpis adipiscing Tempor placerat sed amet accumsan</p>
-					</header>
-					<div class="image-grid">
-						<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-						<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-						<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-						<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-						<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-						<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-						<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-						<a href="#" class="image"><img src="images/pic10.jpg" alt="" /></a>
+	<!-- Header -->
+		<div id="header">
+			<div class="container">
+					
+				<!-- Logo -->
+					<div id="logo">
+						<h1><a href="#">Centri</a></h1>
 					</div>
-					<ul class="actions">
-						<li><a href="#" class="button big alt">Tempus Aliquam</a></li>
-					</ul>
-				</div>
-			</section>
-
-		<!-- Three -->
-			<section id="three" class="wrapper style3 special">
-				<div class="inner">
-					<header class="major narrow	">
-						<h2>Magna sed consequat tempus</h2>
-						<p>Ipsum dolor tempus commodo turpis adipiscing Tempor placerat sed amet accumsan</p>
-					</header>
-					<ul class="actions">
-						<li><a href="#" class="button big alt">Magna feugiat</a></li>
-					</ul>
-				</div>
-			</section>
-
-		<!-- Four -->
-			<section id="four" class="wrapper style2 special">
-				<div class="inner">
-					<header class="major narrow">
-						<h2>Get in touch</h2>
-						<p>Ipsum dolor tempus commodo adipiscing</p>
-					</header>
-					<form action="#" method="POST">
-						<div class="container 75%">
-							<div class="row uniform 50%">
-								<div class="6u 12u$(xsmall)">
-									<input name="name" placeholder="Name" type="text" />
-								</div>
-								<div class="6u$ 12u$(xsmall)">
-									<input name="email" placeholder="Email" type="email" />
-								</div>
-								<div class="12u$">
-									<textarea name="message" placeholder="Message" rows="4"></textarea>
-								</div>
-							</div>
-						</div>
-						<ul class="actions">
-							<li><input type="submit" class="special" value="Submit" /></li>
-							<li><input type="reset" class="alt" value="Reset" /></li>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="active"><a href="index.html">Homepage</a></li>
+							<li><a href="threecolumn.html">Attività</a></li>
+							<li><a href="twocolumn1.html">Informazioni</a></li>
+							<li><a href="twocolumn2.html">Iscrivi allievo</a></li>
+							<li><a href="onecolumn.html">Casi d'uso</a></li>
 						</ul>
-					</form>
-				</div>
-			</section>
+					</nav>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook">
-							<span class="label">Facebook</span>
-						</a></li>
-						<li><a href="#" class="icon fa-twitter">
-							<span class="label">Twitter</span>
-						</a></li>
-						<li><a href="#" class="icon fa-instagram">
-							<span class="label">Instagram</span>
-						</a></li>
-						<li><a href="#" class="icon fa-linkedin">
-							<span class="label">LinkedIn</span>
-						</a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled.</li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a>.</li>
-						<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
-					</ul>
+			</div>
+		</div>
+	<!-- Header -->
+			
+	<!-- Main -->
+		<div id="main">
+			<div class="container">
+				<header>
+					<h2>Gravida nibh quis urna</h2>
+				</header>
+				<div class="row">
+					<div class="3u">
+						<section>
+							<a href="#" class="image full"><img src="images/pics01.jpg" alt="" /></a>
+							<p>Quisque dictum. Pellentesque viverra  enim. Integer nisl risus, sagittis convallis, rutrum id, elementum.</p>
+							<a href="#" class="button">Read More</a>
+						</section>
+					</div>
+					<div class="3u">
+						<section>
+							<a href="#" class="image full"><img src="images/pics11.jpg" alt="" /></a>
+							<p>Pellentesque viverra  enim. Tristique ante ut risus. Quisque dictum. Integer sagittis convallis elementum.</p>
+							<a href="#" class="button">Read More</a>
+						</section>
+					</div>
+					<div class="3u">
+						<section>
+							<a href="#" class="image full"><img src="images/pics12.jpg" alt="" /></a>
+							<p>Pellentesque viverra  enim. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum.</p>
+							<a href="#" class="button">Read More</a>
+						</section>
+					</div>
+					<div class="3u">
+						<section>
+							<a href="#" class="image full"><img src="images/pics13.jpg" alt="" /></a>
+							<p>Tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis elementum.</p>
+							<a href="#" class="button">Read More</a>
+						</section>
+					</div>
 				</div>
-			</footer>
+				<div class="divider">&nbsp;</div>
+				<div class="row">
+				
+					<!-- Content -->
+						<div class="8u skel-cell-important">
+							<section id="content">
+								<header>
+									<h2>Integer gravida nibh quis urna</h2>
+									<span class="byline">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum</span>
+								</header>
+								<p><a href="#" class="image full"><img src="images/pics02.jpg" alt=""></a></p>
+								<p>This is <strong>Monochromed</strong>, a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit! Check out more of our stuff at <a href="http://templated.co">our site</a> or follow us on <a href="http://twitter.com/templatedco">Twitter</a>.</p>
+								<a href="#" class="button">Read More</a>
+							</section>
+						</div>
+					<!-- /Content -->
+						
+					<!-- Sidebar -->
+						<div id="sidebar" class="4u">
+							<section>
+								<header>
+									<h2>Gravida praesent</h2>
+									<span class="byline">Praesent lacus congue rutrum</span>
+								</header>
+								<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. Maecenas luctus lectus at sapien. Consectetuer adipiscing elit.</p>
+								<ul class="default">
+									<li><a href="#">Pellentesque quis lectus gravida blandit.</a></li>
+									<li><a href="#">Lorem ipsum consectetuer adipiscing elit.</a></li>
+									<li><a href="#">Phasellus nec nibh pellentesque congue.</a></li>
+									<li><a href="#">Cras aliquam risus pellentesque pharetra.</a></li>
+									<li><a href="#">Duis non metus commodo euismod lobortis.</a></li>
+									<li><a href="#">Lorem ipsum dolor adipiscing elit.</a></li>
+								</ul>
+							</section>
+						</div>
+					<!-- Sidebar -->
+						
+				</div>
+			
+			</div>
+		</div>
+	<!-- Main -->
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+	<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="3u">
+						<section>
+							<ul class="style1">
+								<li><img src="images/pics05.jpg" width="78" height="78" alt="">
+									<p>Nullam non wisi a sem eleifend. Donec mattis libero eget urna. </p>
+									<p class="posted">August 11, 2014  |  (10 )  Comments</p>
+								</li>
+								<li><img src="images/pics06.jpg" width="78" height="78" alt="">
+									<p>Nullam non wisi a sem eleifend. Donec mattis libero eget urna. </p>
+									<p class="posted">August 11, 2014  |  (10 )  Comments</p>
+								</li>
+								<li><img src="images/pics07.jpg" width="78" height="78" alt="">
+									<p>Nullam non wisi a sem eleifend. Donec mattis libero eget urna. </p>
+									<p class="posted">August 11, 2014  |  (10 )  Comments</p>
+								</li>
+							</ul>
+						</section>
+					</div>
+					<div class="3u">
+						<section>
+							<ul class="style1">
+								<li class="first"><img src="images/pics08.jpg" width="78" height="78" alt="">
+									<p>Nullam non wisi a sem eleifend. Donec mattis libero eget urna. </p>
+									<p class="posted">August 11, 2014  |  (10 )  Comments</p>
+								</li>
+								<li><img src="images/pics09.jpg" width="78" height="78" alt="">
+									<p>Nullam non wisi a sem eleifend. Donec mattis libero eget urna. </p>
+									<p class="posted">August 11, 2014  |  (10 )  Comments</p>
+								</li>
+								<li><img src="images/pics10.jpg" width="78" height="78" alt="">
+									<p>Nullam non wisi a sem eleifend. Donec mattis libero eget urna. </p>
+									<p class="posted">August 11, 2014  |  (10 )  Comments</p>
+								</li>
+							</ul>
+						</section>				
+					</div>
+					<div class="6u">
+						<section>
+							<header>
+								<h2>Aenean elementum</h2>
+							</header>
+							<p>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus.</p>
+							<ul class="default">
+								<li><a href="#">Pellentesque quis lectus gravida blandit.</a></li>
+								<li><a href="#">Lorem ipsum consectetuer adipiscing elit.</a></li>
+								<li><a href="#">Phasellus nec nibh pellentesque congue.</a></li>
+								<li><a href="#">Cras aliquam risus pellentesque pharetra.</a></li>
+								<li><a href="#">Duis non metus commodo euismod lobortis.</a></li>
+								<li><a href="#">Lorem ipsum dolor adipiscing elit.</a></li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Footer -->
+
+	<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+			</div>
+		</div>
 
 	</body>
 </html>
