@@ -1,4 +1,4 @@
-package it.uniroma3.siw.centri.services;
+package it.uniroma3.siw.centri.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,24 +24,28 @@ public class AllievoService {
 		allievoRepository.delete(allievo);
 	}
 
-	public void deleteById(String email) {
-		allievoRepository.deleteById(email);
+	public void deleteByEmail(String email) {
+		allievoRepository.deleteByEmail(email);
 	}
 
-	public boolean existsById(String email) {
-		return allievoRepository.existsById(email);
+	public boolean existsByEmail(String email) {
+		return allievoRepository.existsByEmail(email);
+	}
+	
+	public boolean alreadyExists(Allievo allievo) {
+		return allievoRepository.alreadyExists(allievo);
 	}
 
 	public List<Allievo> findAll(){
 		return allievoRepository.findAll();
 	}
 
-	public Optional<Allievo> findById(String email) {
-		return  allievoRepository.findById(email);
+	public Optional<Allievo> findByEmail(String email) {
+		return  allievoRepository.findByEmail(email);
 	}
 
-	public Allievo save(Allievo a) {
-		return allievoRepository.save(a);
+	public Allievo save(Allievo allievo) {
+		return allievoRepository.save(allievo);
 	}
 	
 	

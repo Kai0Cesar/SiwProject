@@ -1,4 +1,4 @@
-package it.uniroma3.siw.centri.services;
+package it.uniroma3.siw.centri.service;
 
 import java.util.List;
 import java.util.Optional;

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.uniroma3.siw.centri.model.Attivita;
-import it.uniroma3.siw.centri.services.AttivitaService;
+import it.uniroma3.siw.centri.service.AttivitaService;
 
 @Controller
 @RequestMapping("/attivita")
@@ -20,14 +20,14 @@ public class AttivitaController {
 	@Autowired
 	private AttivitaService attivitaService;
 	
-	@GetMapping("/list")
+	@GetMapping("/lista")
 	public String listCustomer(Model model) {
 
 		List<Attivita> attivita = attivitaService.findAll();
 
 		model.addAttribute("attivita", attivita);
 
-		return "list-attivita";
+		return "lista-attivita";
 	}
 	
 	@GetMapping("/showFormAdd")
@@ -40,12 +40,12 @@ public class AttivitaController {
 		return "attivita-form";
 	}
 	
-	@PostMapping("/salvaAttivita")
+	@PostMapping("/saveAttivita")
 	public String saveCustomer(@ModelAttribute("attivita") Attivita attivita) {
 		
 		attivitaService.save(attivita);
 
-		return "redirect:/attivita/list";
+		return "redirect:/attivita/lista";
 	}
 
 

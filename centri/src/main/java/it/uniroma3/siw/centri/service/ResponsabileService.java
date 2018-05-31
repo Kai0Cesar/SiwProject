@@ -1,4 +1,4 @@
-package it.uniroma3.siw.centri.services;
+package it.uniroma3.siw.centri.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,15 +18,15 @@ public class ResponsabileService {
 		responsabileService.delete(responsabile);
 	}
 
-	public void deleteById(String email) {
-		responsabileService.deleteById(email);
+	public void deleteByEmail(String email) {
+		responsabileService.deleteByEmail(email);
 	}
 	public List<Responsabile> findAll(){
 		return responsabileService.findAll();
 	}
 
-	public  Optional<Responsabile> findById(String email){
-		return responsabileService.findById(email);
+	public  Optional<Responsabile> findByEmail(String email){
+		return responsabileService.findByEmail(email);
 	}
 
 	public Responsabile save(Responsabile responsabile) {

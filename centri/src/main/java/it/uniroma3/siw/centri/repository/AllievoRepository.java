@@ -13,13 +13,15 @@ public interface AllievoRepository extends CrudRepository<Allievo, String> {
 
 	public void delete(Allievo allievo);
 
-	public void deleteById(String email);
+	public void deleteByEmail(String email);
 
-	public boolean existsById(String email);
+	public boolean existsByEmail(String email);
 
+	public boolean alreadyExists(Allievo allievo);
+	
 	public List<Allievo> findAll();
 
-	public Optional<Allievo> findById(String email);
+	public Optional<Allievo> findByEmail(String email);
 
 	public Allievo save(Allievo allievo);
 

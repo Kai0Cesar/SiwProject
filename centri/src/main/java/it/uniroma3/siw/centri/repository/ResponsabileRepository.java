@@ -11,11 +11,11 @@ public interface ResponsabileRepository extends CrudRepository<Responsabile, Str
 
 	public void delete(Responsabile responsabile);
 
-	public void deleteById(String email);
+	public void deleteByEmail(String email);
 	
 	public List<Responsabile> findAll();
 
-	public Optional<Responsabile> findById(String email);
+	public Optional<Responsabile> findByEmail(String email);
 
 	public Responsabile  save(Responsabile responsabile);
 
