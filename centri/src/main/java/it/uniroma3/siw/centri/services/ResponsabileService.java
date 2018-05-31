@@ -1,6 +1,7 @@
 package it.uniroma3.siw.centri.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,17 +21,18 @@ public class ResponsabileService {
 	public void deleteById(String email) {
 		responsabileService.deleteById(email);
 	}
+	public List<Responsabile> findAll(){
+		return responsabileService.findAll();
+	}
 
-	public Responsabile findById(String email){
+	public  Optional<Responsabile> findById(String email){
 		return responsabileService.findById(email);
 	}
 
-	public void save(Responsabile responsabile) {
-		responsabileService.save(responsabile);
+	public Responsabile save(Responsabile responsabile) {
+		return responsabileService.save(responsabile);
 	}
 
-	public List<Responsabile> findAll(){
-		return (List<Responsabile>) responsabileService.findAll();
-	}
+	
 	
 }

@@ -1,28 +1,26 @@
 package it.uniroma3.siw.centri.repository;
 
+import java.util.List;
 import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 
 import it.uniroma3.siw.centri.model.Allievo;
 
 public interface AllievoRepository extends CrudRepository<Allievo, String> {
 
-	@Override
 	public long count();
 
-	@Override
+	public void delete(Allievo allievo);
+
 	public void deleteById(String email);
 
-	@Override
-	public boolean existsById(String email);
+	public boolean existsById(Allievo allievo);
 
-	@Override
-	public Iterable<Allievo> findAll();
+	public List<Allievo> findAll();
 
-	@Override
 	public Optional<Allievo> findById(String email);
 
-	@Override
-	public <S extends Allievo> S save(S Allievo);
+	public Allievo save(Allievo allievo);
 
 }

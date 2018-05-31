@@ -1,6 +1,7 @@
 package it.uniroma3.siw.centri.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class AllievoService {
 	public long count() {
 		return allievoRepository.count();
 	}
+	
+	public void delete(Allievo allievo) {
+		allievoRepository.delete(allievo);
+	}
 
 	public void deleteById(String email) {
 		allievoRepository.deleteById(email);
@@ -28,15 +33,15 @@ public class AllievoService {
 	}
 
 	public List<Allievo> findAll(){
-		return (List<Allievo>) allievoRepository.findAll();
+		return allievoRepository.findAll();
 	}
 
-	public Allievo findById(String email) {
-		return  allievoRepository.findById(email).get();
+	public Optional<Allievo> findById(String email) {
+		return  allievoRepository.findById(email);
 	}
 
-	public void save(Allievo a) {
-		allievoRepository.save(a);
+	public Allievo save(Allievo a) {
+		return allievoRepository.save(a);
 	}
 	
 	
