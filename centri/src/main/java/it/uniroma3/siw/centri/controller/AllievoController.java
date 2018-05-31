@@ -43,7 +43,7 @@ public class AllievoController {
 		
 		model.addAttribute("allievo", this.allievoService.findByEmail(email));
 		
-		return "mostraAllievo";
+		return "mostra-allievo";
 	}
 
 	@PostMapping("/nuovoAllievo")
@@ -54,7 +54,7 @@ public class AllievoController {
 
 		if (this.allievoService.alreadyExists(allievo)) {
 			model.addAttribute("esistenza", "Allievo già presente");
-			return "customerForm";
+			return "form-allievo";
 		} else {
 			if (!bindingResult.hasErrors()) {
 				this.allievoService.save(allievo);
@@ -62,7 +62,7 @@ public class AllievoController {
 				return "lista-allievi";
 			}
 		}
-		return "allievoForm";
+		return "form-allievo";
 
 	}
 
