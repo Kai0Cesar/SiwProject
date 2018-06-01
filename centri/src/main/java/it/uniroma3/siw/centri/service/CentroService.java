@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.siw.centri.model.Centro;
 import it.uniroma3.siw.centri.repository.CentroRepository;
 
 @Service
+@Transactional
 public class CentroService {
 	@Autowired
 	private CentroRepository centroRepository;
