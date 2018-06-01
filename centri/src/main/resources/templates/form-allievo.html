@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Customer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body>
+        <form action="#" th:action="@{/allievo/nuovoAllievo}" th:object="${allievo}" method="post">
+            <div>
+                <div>
+                    <span >Nome: </span>
+                    <span><input type="text" th:field="*{nome}" /></span>
+                    <span th:if="${#fields.hasErrors('nome')}" th:text="#{richiesto.allievo.nome}">Error</span>
+                </div>
+                <div>
+                    <span>Cognome: </span>
+                    <span><input type="text" th:field="*{cognome}" /></span>
+                    <span th:if="${#fields.hasErrors('cognome')}" th:text="#{richiesto.allievo.cognome}">Error</span>
+                </div>
+                <div>
+                    <span>Email:</span>
+                    <span><input type="text" th:field="*{email}" /></span>
+                    <span th:if="${#fields.hasErrors('email')}" th:text="#{richiesto.allievo.email}">Error</span>
+                </div>
+                <div>
+                    <span><button type="submit">Submit</button></span>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

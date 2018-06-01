@@ -7,30 +7,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.centri.model.Responsabile;
+import it.uniroma3.siw.centri.repository.ResponsabileRepository;
 
 @Service
 public class ResponsabileService {
 
 	@Autowired
-	private ResponsabileService responsabileService;
+	private ResponsabileRepository responsabileRepository;
 	
 	public void delete(Responsabile responsabile) {
-		responsabileService.delete(responsabile);
+		responsabileRepository.delete(responsabile);
 	}
 
 	public void deleteByEmail(String email) {
-		responsabileService.deleteByEmail(email);
+		responsabileRepository.deleteByEmail(email);
 	}
 	public List<Responsabile> findAll(){
-		return responsabileService.findAll();
+		return responsabileRepository.findAll();
 	}
 
 	public  Optional<Responsabile> findByEmail(String email){
-		return responsabileService.findByEmail(email);
+		return responsabileRepository.findByEmail(email);
 	}
 
 	public Responsabile save(Responsabile responsabile) {
-		return responsabileService.save(responsabile);
+		return responsabileRepository.save(responsabile);
 	}
 
 	

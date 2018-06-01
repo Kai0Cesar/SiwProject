@@ -40,9 +40,9 @@ public class AllievoController {
 
 	@GetMapping("/{email}")
 	public String getAllievo(@PathVariable("email") String email, Model model) {
-		
+
 		model.addAttribute("allievo", this.allievoService.findByEmail(email));
-		
+
 		return "mostra-allievo";
 	}
 
@@ -52,16 +52,22 @@ public class AllievoController {
 
 		this.allievoValidator.validate(allievo, bindingResult);
 
-		if (this.allievoService.alreadyExists(allievo)) {
+		if (this.allievoService.existsByEmail(allievo.getEmail())) {
 			model.addAttribute("esistenza", "Allievo già presente");
 			return "form-allievo";
 		} else {
 			if (!bindingResult.hasErrors()) {
 				this.allievoService.save(allievo);
 				model.addAttribute("allievi", allievoService.findAll());
-				return "lista-allievi";
+				return "redirect:/allievo/lista";
 			}
 		}
+		return "form-allievo";
+
+	}
+
+	@GetMapping("/nuovoAllievo")
+	public String newFormAllievo(Allievo allievo) {
 		return "form-allievo";
 
 	}

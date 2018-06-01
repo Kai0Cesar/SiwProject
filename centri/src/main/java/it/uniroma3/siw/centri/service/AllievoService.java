@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.siw.centri.model.Allievo;
 import it.uniroma3.siw.centri.repository.AllievoRepository;
 
 @Service
+@Transactional
 public class AllievoService {
 
 	@Autowired
@@ -32,9 +34,9 @@ public class AllievoService {
 		return allievoRepository.existsByEmail(email);
 	}
 	
-	public boolean alreadyExists(Allievo allievo) {
+	/*public boolean alreadyExists(Allievo allievo) {
 		return allievoRepository.alreadyExists(allievo);
-	}
+	}*/
 
 	public List<Allievo> findAll(){
 		return allievoRepository.findAll();

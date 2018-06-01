@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Allievi iscritti</title>
+</head>
+<body>
+	<th:block th:each="allievo : ${allievi}">
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Email</th>
+			</tr>
+			<tr>
+				<td th:text="${allievo.nome}"></td>
+				<td th:text="${allievo.cognome}"></td>
+				<td th:text="${allievo.email}"></td>
+			</tr>
+		</table>
+	</th:block>
+	<div>
+		<a href="/allievo/nuovoAllievo">Iscrivi nuovo allievo</a>
+	</div>
+</body>
+</html>
