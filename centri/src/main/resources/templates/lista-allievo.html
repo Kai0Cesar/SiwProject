@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+		<title>Allievi iscritti</title>
+		<link rel="stylesheet" type="text/css" media="all" href="../static/css/form.css" th:href="@{/css/form.css}" />
+	</head>
+<body>
+
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>Cognome</th>
+			<th>Email</th>
+		</tr>
+		<tr th:each="allievo : ${allievi}">
+			<td>
+				<a th:href="@{'/allievo' + '/' + ${allievo.id}}">
+					<span th:text="${allievo.nome}"></span>
+				</a>
+			</td>
+		</tr>
+	</table>
+
+	<div>
+		<button name="submit" type="button" id="button" onclick="location.href='/addAllievo'">Aggiungi allievo</button>
+	</div>
+</body>
+</html>
