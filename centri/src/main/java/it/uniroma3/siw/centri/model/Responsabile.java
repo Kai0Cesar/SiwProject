@@ -17,12 +17,26 @@ public class Responsabile {
 	@Column(nullable = false)
 	private String cognome;
 
+	@Column(nullable = false)
+	private String password;
+
+	@Column(nullable = false)
+	private String ruolo;
+
 	private String telefono;
 
 	@ManyToOne
 	private Centro centro;
 
 	public Responsabile() {
+	}
+
+	public Responsabile(String email, String nome, String cognome, String password, String ruolo) {
+		this.email = email;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.password = password;
+		this.ruolo = ruolo;
 	}
 
 	public Centro getCentro() {
@@ -55,6 +69,22 @@ public class Responsabile {
 
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRuolo() {
+		return ruolo;
+	}
+
+	public void setRuolo(String ruolo) {
+		this.ruolo = ruolo;
 	}
 
 	public String getTelefono() {

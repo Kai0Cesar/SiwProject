@@ -11,4 +11,9 @@ public class HomePageController {
 		return "home-page";
 	}
 	
+	@GetMapping("/casiDuso")
+	public String casiDuso() {
+		return "casiDuso";
+	}
+	
 }

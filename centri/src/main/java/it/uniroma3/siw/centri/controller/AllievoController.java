@@ -29,10 +29,31 @@ public class AllievoController {
 		model.addAttribute("allievi",this.allievoService.findAll());
 		return "lista-allievo";
 	}
-	
-	@RequestMapping("/addAllievo")
-	public String addAllievo(Model model) {
-		model.addAttribute("allievo",new Allievo());
+
+	@GetMapping("/{email}")
+	public String getAllievo(@PathVariable("email") String email, Model model) {
+
+		model.addAttribute("allievo", this.allievoService.findByEmail(email).get());
+
+		return "mostra-allievo";
+	}
+
+	@PostMapping("/nuovoAllievo")
+	public String newAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, Model model,
+			BindingResult bindingResult) {
+
+		this.allievoValidator.validate(allievo, bindingResult);
+
+		if (this.allievoService.existsByEmail(allievo.getEmail())) {
+			model.addAttribute("esistenza", "Allievo già presente");
+			return "form-allievo";
+		} else {
+			if (!bindingResult.hasErrors()) {
+				this.allievoService.save(allievo);
+				model.addAttribute("allievi", allievoService.findAll());
+				return "redirect:/allievo/lista";
+			}
+		}
 		return "form-allievo";
 	}
 	

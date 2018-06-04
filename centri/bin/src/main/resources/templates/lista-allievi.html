@@ -17,6 +17,7 @@
 				<td th:text="${allievo.nome}"></td>
 				<td th:text="${allievo.cognome}"></td>
 				<td th:text="${allievo.email}"></td>
+				<td><a th:href="@{'/allievo'+'/'+${allievo.email}}" >Dettagli</a></td>
 			</tr>
 		</th:block>
 	</table>
