@@ -11,7 +11,7 @@
 		
 </head>
     <body class="form">
-    <p  th:text="${esistenza}"></p>    
+       
     	<div id="header">
 			<div class="container">
 					
@@ -25,9 +25,9 @@
 						<ul>
 							<li class="active"><a href="index.html">Homepage</a></li>
 							<li><a href="/attivita/lista">Attività</a></li>
-							<li><a href="/addAllievo">Iscrizione allievo</a></li>
-							<li><a href="/allievi">Allievi</a></li>
-							<li><a href="onecolumn.html">Logout</a></li>
+							<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
+							<li><a href="/allievo/lista">Allievi</a></li>
+							<li><a href="twocolumn1.html">Logout</a></li>
 						</ul>
 					</nav>
 
@@ -36,8 +36,9 @@
 		<div id="main">
 		    <h3>Iscrizione</h3>
     		<h4>Inserimento dati nuovo allievo</h4>
+    		<h4 id="error" th:text="${esistenza}"></h4> 
     
-        <form action="#" th:action="@{/allievo/nuovoAllievo}" th:object="${allievo}" method="post">
+        <form id="contact" action="#" th:action="@{/allievo/nuovoAllievo}" th:object="${allievo}" method="post">
             		
 				<table>
 					<tr>
@@ -64,7 +65,7 @@
     				<tr>
     					<td>
       						<div>Data di nascita:</div>
-      						<div><input type="text" th:field="*{dataDiNascita}" /></div>
+      						<div><input type="date" th:field="*{dataDiNascita}" /></div>
     					</td>
     				<tr>
     				<tr>
@@ -77,7 +78,6 @@
       				
       				<span><button name="reset" type="reset" id="contact-reset" data-submit="...Reset">Cancella</button></span>
       				<span><button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button></span>
-    			  	
         		</form>
         	</div>
     </body>

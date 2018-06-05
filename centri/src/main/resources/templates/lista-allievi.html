@@ -8,8 +8,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" th:href="@{fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{css/listutil.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{css/listmain.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/listutil.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/listmain.css}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" />
 	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/skel-noscript.css}" />
@@ -33,8 +33,8 @@
 						<ul>
 							<li class="active"><a href="/">Homepage</a></li>
 							<li><a href="threecolumn.html">Attività</a></li>
-							<li><a href="/addAllievo">Iscrizione allievo</a></li>
-							<li><a href="/allievi">Allievi</a></li>
+							<li><a href="/allievo/nuovoAllievo">Iscrizione allievo</a></li>
+							<li><a href="/allievo/lista">Allievi</a></li>
 							<li><a href="onecolumn.html">Logout</a></li>
 						</ul>
 					</nav>
@@ -46,6 +46,17 @@
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
+			
+			<div>
+		<form action="#" th:action="@{/allievo/}" method="get">
+			<div>
+				<span>Cerca allievo</span> <span><input type="text" name="email" /></span> 
+				<span><button type="submit">Cerca</button></span>
+				<p id="error" th:text="${esistenza}"></p>    
+			</div>
+		</form>
+	</div>
+			
 			<h3>Lista Allievi</h3>
     		<h4>Inserimento dati nuovo allievo</h4>
 				<div class="table100">

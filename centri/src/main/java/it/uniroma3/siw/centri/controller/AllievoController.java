@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,18 +20,23 @@ import it.uniroma3.siw.centri.service.AllievoService;
 import it.uniroma3.siw.centri.validator.AllievoValidator;
 
 @Controller
+@RequestMapping("/allievo")
 public class AllievoController {
-	
+
 	@Autowired
-	private AllievoService allievoService;
-	
+	public AllievoService allievoService;
+
 	@Autowired
-	private AllievoValidator validator;
-	
-	@RequestMapping("/allievi")
-	public String allievi(Model model) {
-		model.addAttribute("allievi",this.allievoService.findAll());
-		return "lista-allievo";
+	public AllievoValidator allievoValidator;
+
+	@GetMapping("/lista")
+	public String getAllievi(Model model) {
+
+		List<Allievo> allievi = this.allievoService.findAll();
+
+		model.addAttribute("allievi", allievi);
+
+		return "lista-allievi";
 	}
 
 	@GetMapping("/")
@@ -40,7 +46,7 @@ public class AllievoController {
 
 		if (!allievo.isPresent()) {
 
-			model.addAttribute("esistenza", "Allievo non presente");
+			model.addAttribute("esistenza", "Allievo non trovato");
 			return getAllievi(model);
 		}
 		model.addAttribute("allievo", allievo.get());
@@ -49,47 +55,34 @@ public class AllievoController {
 	}
 
 	@PostMapping("/nuovoAllievo")
-	public String newAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, Model model,
-			BindingResult bindingResult) {
+	public String newAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, BindingResult bindingResult, Model model) {
 
 		this.allievoValidator.validate(allievo, bindingResult);
 
+		System.out.println("Allievo controllato");
 		if (this.allievoService.existsByEmail(allievo.getEmail())) {
-			model.addAttribute("esistenza", "Allievo già presente");
+			model.addAttribute("esistenza", "Allievo già iscritto");
 			return "form-allievo";
 		} else {
+			System.out.println("controllo se ci sono errori");
 			if (!bindingResult.hasErrors()) {
+				System.out.println("Nessun errore");
 				this.allievoService.save(allievo);
 				model.addAttribute("allievi", allievoService.findAll());
-				return "redirect:/allievo/lista";
+				return "lista-allievi";
 			}
 		}
+		System.out.println(bindingResult.getAllErrors());
+		System.out.println("ci sono errori");
 		return "form-allievo";
+
 	}
-	
-	@RequestMapping(value = "/allievo/{id}", method = RequestMethod.GET)
-	public String getAllievo(@PathVariable("id") String id, Model model) {
-		model.addAttribute("allievo",this.allievoService.findByEmail(id));
-		return "mostra-allievo";
+
+	@GetMapping("/nuovoAllievo")
+	public String addAllievo(Model model) {
+		model.addAttribute("allievo",new Allievo());
+		return "form-allievo";
+
 	}
-	
-	@RequestMapping(value = "/form", method = RequestMethod.POST)
-    public String newCustomer(@Valid @ModelAttribute("allievo") Allievo allievo,BindingResult bindingResult, 
-    									Model model) {
-        this.validator.validate(allievo, bindingResult);
-        
-        if (this.allievoService.existsByEmail(allievo.getEmail())) {
-            model.addAttribute("exists", "Allievo già esistente");
-            return "form-allievo";
-        }
-        else {
-            if (!bindingResult.hasErrors()) {
-                this.allievoService.save(allievo);
-                model.addAttribute("allievi", this.allievoService.findAll());
-                return "lista-allievo";
-            }
-        }
-        return "form-allievo";
-    }
 
 }
