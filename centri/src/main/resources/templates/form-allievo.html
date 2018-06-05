@@ -11,7 +11,7 @@
 		
 </head>
     <body class="form">
-    
+    <p  th:text="${esistenza}"></p>    
     	<div id="header">
 			<div class="container">
 					
@@ -19,8 +19,8 @@
 					<div id="logo">
 						<h1><a href="#">Gestione Centro</a></h1>
 					</div>
-				
 				<!-- Nav -->
+				
 					<nav id="nav">
 						<ul>
 							<li class="active"><a href="index.html">Homepage</a></li>
@@ -37,7 +37,7 @@
 		    <h3>Iscrizione</h3>
     		<h4>Inserimento dati nuovo allievo</h4>
     
-        		<form id="contact" th:action="@{/form}" th:object="${allievo}" method="post">
+        <form action="#" th:action="@{/allievo/nuovoAllievo}" th:object="${allievo}" method="post">
             		
 				<table>
 					<tr>

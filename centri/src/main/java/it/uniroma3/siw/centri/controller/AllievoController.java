@@ -1,5 +1,8 @@
 package it.uniroma3.siw.centri.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.centri.model.Allievo;
 import it.uniroma3.siw.centri.service.AllievoService;
@@ -30,10 +33,17 @@ public class AllievoController {
 		return "lista-allievo";
 	}
 
-	@GetMapping("/{email}")
-	public String getAllievo(@PathVariable("email") String email, Model model) {
+	@GetMapping("/")
+	public String searchAllievo(@RequestParam("email") String email, Model model) {
 
-		model.addAttribute("allievo", this.allievoService.findByEmail(email).get());
+		Optional<Allievo> allievo = this.allievoService.findByEmail(email);
+
+		if (!allievo.isPresent()) {
+
+			model.addAttribute("esistenza", "Allievo non presente");
+			return getAllievi(model);
+		}
+		model.addAttribute("allievo", allievo.get());
 
 		return "mostra-allievo";
 	}
