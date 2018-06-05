@@ -78,7 +78,7 @@ fieldset {
   resize: none;
 }
 
-#contact button[type="submit"], button[type="reset"],#button {
+#contact button[type="submit"], button[type="reset"] {
   cursor: pointer;
   width: 20%;
   border: none;
@@ -108,6 +108,16 @@ fieldset {
 #contact textarea:focus {
   outline: 0;
   border: 1px solid #aaa;
+}
+
+#contact td 
+{
+	padding: 10px 0;
+}
+
+#error
+{
+	color:red;
 }
 
 ::-webkit-input-placeholder {

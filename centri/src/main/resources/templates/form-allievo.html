@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" media="all" href="../static/css/style-desktop.css" th:href="@{/css/style-desktop.css}" />
 		
 </head>
-    <body>
+    <body class="form">
     
     	<div id="header">
 			<div class="container">
@@ -24,7 +24,7 @@
 					<nav id="nav">
 						<ul>
 							<li class="active"><a href="index.html">Homepage</a></li>
-							<li><a href="threecolumn.html">Attività</a></li>
+							<li><a href="/attivita/lista">Attività</a></li>
 							<li><a href="/addAllievo">Iscrizione allievo</a></li>
 							<li><a href="/allievi">Allievi</a></li>
 							<li><a href="onecolumn.html">Logout</a></li>
@@ -39,43 +39,45 @@
     
         		<form id="contact" th:action="@{/form}" th:object="${allievo}" method="post">
             		
-
-    				<fieldset>
-      					<span >Nome (*):</span>
-      					<span><input type="text" th:field="*{nome}" /></span>
-      					<span th:if="${#fields.hasErrors('nome')}" th:text="#{richiesto.allievo.nome}">Error</span>
-    				</fieldset>
-    
-    				<fieldset>
-      					<span>Cognome (*):</span>
-      					<span><input type="text" th:field="*{cognome}" /></span>
-      					<span th:if="${#fields.hasErrors('cognome')}" th:text="#{richiesto.allievo.cognome}">Error</span>
-    				</fieldset>
-    
-    				<fieldset>
-      					<span>Email (*):</span>
-      					<span><input type="text" th:field="*{email}" /></span>
-      					<span th:if="${#fields.hasErrors('email')}" th:text="#{richiesto.allievo.email}">Error</span>
-    				</fieldset>
-    
-    				<fieldset>
-      					<span>Data di nascita:</span>
-      					<span><input type="text" th:field="*{dataDiNascita}" /></span>
-    				</fieldset>
-    
-    				<fieldset>
-      					<span>Luogo di nascita:</span>
-      					<span><input type="text" th:field="*{luogoDiNascita}" /></span>
-    				</fieldset>
-    				
-    				<fieldset>
-      					<button name="reset" type="reset" id="contact-reset" data-submit="...Reset">Cancella</button>
-    				</fieldset>
-    				
-    				<fieldset>
-      					<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-    				</fieldset>
-    			   				
+				<table>
+					<tr>
+    					<td>
+      						<div >Nome (*):</div>
+      						<div><input type="text" th:field="*{nome}" /></div>
+      						<span id="error" th:if="${#fields.hasErrors('nome')}" th:text="#{richiesto.allievo.nome}">Error</span>
+    					</td>
+    				</tr>
+    				<tr>
+    					<td>
+      						<div>Cognome (*):</div>
+      						<div><input type="text" th:field="*{cognome}" /></div>
+      						<span id="error" th:if="${#fields.hasErrors('cognome')}" th:text="#{richiesto.allievo.cognome}">Error</span>
+    					</td>
+    				<tr>
+    				<tr>
+    					<td>
+      						<div>Email (*):</div>
+      						<div><input type="text" th:field="*{email}" /></div>
+      						<span id="error" th:if="${#fields.hasErrors('email')}" th:text="#{richiesto.allievo.email}">Error</span>
+    					</td>
+    				<tr>
+    				<tr>
+    					<td>
+      						<div>Data di nascita:</div>
+      						<div><input type="text" th:field="*{dataDiNascita}" /></div>
+    					</td>
+    				<tr>
+    				<tr>
+    					<td>
+      						<div>Luogo di nascita:</div>
+      						<div><input type="text" th:field="*{luogoDiNascita}" /></div>
+    					</td>
+    				<tr>
+    				</table>	
+      				
+      				<span><button name="reset" type="reset" id="contact-reset" data-submit="...Reset">Cancella</button></span>
+      				<span><button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button></span>
+    			  	
         		</form>
         	</div>
     </body>

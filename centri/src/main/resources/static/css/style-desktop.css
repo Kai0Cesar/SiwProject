@@ -43,9 +43,20 @@
 	{
 		padding: 5em 0em;
 		text-align: center;
+		
 	}
 	
 		.homepage #header
+		{
+			padding: 10em 0em;
+		}
+		
+		.form #header
+		{
+			padding: 10em 0em;
+		}
+		
+		.list #header
 		{
 			padding: 10em 0em;
 		}

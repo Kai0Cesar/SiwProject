@@ -21,31 +21,12 @@ public class AttivitaController {
 	private AttivitaService attivitaService;
 	
 	@GetMapping("/lista")
-	public String listCustomer(Model model) {
-
-		List<Attivita> attivita = attivitaService.findAll();
-
-		model.addAttribute("attivita", attivita);
-
-		return "lista-attivita";
-	}
-	
-	@GetMapping("/showFormAdd")
-	public String showFormAdd(Model model) {
-
-		Attivita attivita = new Attivita();
-
-		model.addAttribute("attivita", attivita);
-
-		return "attivita-form";
-	}
-	
-	@PostMapping("/salvaAttivita")
-	public String saveCustomer(@ModelAttribute("attivita") Attivita attivita) {
+	private String attivita(Model model) {
 		
-		attivitaService.save(attivita);
-
-		return "redirect:/attivita/lista";
+		List<Attivita> attivita = this.attivitaService.findAll();
+		model.addAttribute(attivita);
+		
+		return "lista-attivita";
 	}
 
 

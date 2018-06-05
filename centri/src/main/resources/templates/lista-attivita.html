@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Attivita</title>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" th:href="@{fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" th:href="@{css/listutil.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{css/listmain.css}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" media="all" href="../static/css/styke.css" th:href="@{/css/style.css}" />
+		<link rel="stylesheet" type="text/css" media="all" href="../static/css/skel-noscript.css" th:href="@{/css/skel-noscript.css}" />
+		<link rel="stylesheet" type="text/css" media="all" href="../static/css/style-desktop.css" th:href="@{/css/style-desktop.css}" />
+
+	</head>
+<body class="list">
+	<div id="header">
+			<div class="container">
+					
+				<!-- Logo -->
+					<div id="logo">
+						<h1><a href="#">Gestione Centro</a></h1>
+					</div>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="active"><a href="index.html">Homepage</a></li>
+							<li><a href="/attivita/lista">Attività</a></li>
+							<li><a href="/addAllievo">Iscrizione allievo</a></li>
+							<li><a href="/allievi">Allievi</a></li>
+							<li><a href="onecolumn.html">Logout</a></li>
+						</ul>
+					</nav>
+
+			</div>
+		</div>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+			<h3>Lista Attivita</h3>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Id</th>
+								<th class="column2">Nome</th>
+								<th class="column3">Data</th>
+								<th class="column4">Ora</th>
+								<th class="column5">Centro</th>
+								<th class="column6">Allievi</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr th:each="activity : ${attivita}">
+									<td class="column1"><span th:text="${activity.id}"></span></td>
+									<td class="column2"><span th:text="${activity.nome}"></span></td>
+									<td class="column3"><span th:text="${activity.data}"></span></td>
+									<td class="column4"><span th:text="${activity.ora}"></span></td>
+									<td class="column5"><span th:text="${activity.centro}"></span></td>
+									<!-- <td class="column6"><span th:text="${activity.id}"></span></td>  -->
+								</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
