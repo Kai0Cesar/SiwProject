@@ -66,9 +66,10 @@
 								<th class="column1">Nome</th>
 								<th class="column2">Cognome</th>
 								<th class="column3">Email</th>
-								<th class="column4">Data di nascita</th>
-								<th class="column5">Luogo di nascita</th>
-								<th class="column6">Telefono</th>
+								<th class="column4">Telefono</th>
+								<th class="column5">Data di nascita</th>
+								<th class="column6">Luogo di nascita</th>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -76,9 +77,10 @@
 									<td class="column1"><span th:text="${allievo.nome}"></span></td>
 									<td class="column2"><span th:text="${allievo.cognome}"></span></td>
 									<td class="column3"><span th:text="${allievo.email}"></span></td>
-									<td class="column4"><span th:text="${allievo.dataDiNascita}"></span></td>
-									<td class="column5"><span th:text="${allievo.luogoDiNascita}"></span></td>
-									<td class="column6"><span th:text="${allievo.telefono}"></span></td>
+									<td class="column4"><span th:text="${allievo.telefono}"></span></td>
+									<td class="column5"><span th:text="${#dates.format(allievo.dataDiNascita, 'dd-MMM-yyyy')}"></span></td>
+									<td class="column6"><span th:text="${allievo.luogoDiNascita}"></span></td>
+									
 								</tr>
 						</tbody>
 					</table>

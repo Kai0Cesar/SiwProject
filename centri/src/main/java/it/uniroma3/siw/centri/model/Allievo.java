@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Allievo {
 
@@ -25,6 +27,7 @@ public class Allievo {
 	private String luogoDiNascita;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataDiNascita;
 
 	public Allievo() {

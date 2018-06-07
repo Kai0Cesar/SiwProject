@@ -59,21 +59,17 @@ public class AllievoController {
 
 		this.allievoValidator.validate(allievo, bindingResult);
 
-		System.out.println("Allievo controllato");
 		if (this.allievoService.existsByEmail(allievo.getEmail())) {
 			model.addAttribute("esistenza", "Allievo già iscritto");
 			return "form-allievo";
 		} else {
-			System.out.println("controllo se ci sono errori");
 			if (!bindingResult.hasErrors()) {
 				System.out.println("Nessun errore");
 				this.allievoService.save(allievo);
 				model.addAttribute("allievi", allievoService.findAll());
-				return "lista-allievi";
+				return "redirect:/allievo/lista";
 			}
 		}
-		System.out.println(bindingResult.getAllErrors());
-		System.out.println("ci sono errori");
 		return "form-allievo";
 
 	}
