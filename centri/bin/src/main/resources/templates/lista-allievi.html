@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Allievi iscritti</title>
+</head>
+<body>
+
+
+	<div>
+		<a href="/allievo/nuovoAllievo">Iscrivi nuovo allievo</a>
+	</div>
+
+	<div>
+		<form action="#" th:action="@{/allievo/}" method="get">
+			<div>
+				<span>Cerca allievo</span> <span><input type="text" name="email" /></span> 
+				<span><button type="submit">Cerca</button></span>
+				<p  th:text="${esistenza}"></p>    
+			</div>
+		</form>
+	</div>
+
+
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>Cognome</th>
+			<th>Email</th>
+		</tr>
+		<th:block th:each="allievo : ${allievi}">
+			<tr>
+				<td th:text="${allievo.nome}"></td>
+				<td th:text="${allievo.cognome}"></td>
+				<td th:text="${allievo.email}"></td>
+			</tr>
+		</th:block>
+	</table>
+
+
+
+
+</body>
+</html>

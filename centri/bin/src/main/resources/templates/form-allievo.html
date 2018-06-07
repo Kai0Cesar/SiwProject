@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nuovo Allievo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/form.css" th:href="@{/css/form.css}" />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/style.css" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/skel-noscript.css" th:href="@{/css/skel-noscript.css}" />
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/style-desktop.css" th:href="@{/css/style-desktop.css}" />
+		
+</head>
+    <body>
+    
+    	<div id="header">
+			<div class="container">
+					
+				<!-- Logo -->
+					<div id="logo">
+						<h1><a href="#">Gestione Centro</a></h1>
+					</div>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="active"><a href="index.html">Homepage</a></li>
+							<li><a href="threecolumn.html">Attività</a></li>
+							<li><a href="/allievo/form">Iscrizione allievo</a></li>
+							<li><a href="">Allievi</a></li>
+							<li><a href="onecolumn.html">Informazioni</a></li>
+						</ul>
+					</nav>
+
+			</div>
+		</div>
+		<div id="main">
+		    <h3>Iscrizione</h3>
+    		<h4>Inserimento dati nuovo allievo</h4>
+    
+			<div id="contact">
+        		<form action="#" th:action="@{/allievo/processForm}" th:object="${allievo}" method="post">
+            		
+
+    				<fieldset>
+      					<span >Nome: </span>
+      					<span><input type="text" th:field="*{nome}" /></span>
+      					<span th:if="${#fields.hasErrors('nome')}" th:text="#{richiesto.allievo.nome}">Error</span>
+    				</fieldset>
+    
+    				<fieldset>
+      					<span>Cognome: </span>
+      					<span><input type="text" th:field="*{cognome}" /></span>
+      					<span th:if="${#fields.hasErrors('cognome')}" th:text="#{richiesto.allievo.cognome}">Error</span>
+    				</fieldset>
+    
+    				<fieldset>
+      					<span>Email:</span>
+      					<span><input type="text" th:field="*{email}" /></span>
+      					<span th:if="${#fields.hasErrors('email')}" th:text="#{richiesto.allievo.email}">Error</span>
+    				</fieldset>
+    
+    				<fieldset>
+      					<span>Data di nascita:</span>
+      					<span><input type="text" th:field="*{dataDiNascita}" /></span>
+    				</fieldset>
+    
+    				<fieldset>
+      					<span>Luogo di nascita:</span>
+      					<span><input type="text" th:field="*{luogoDiNascita}" /></span>
+    				</fieldset>
+    
+    				<fieldset>
+      					<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    				</fieldset>
+    		
+        		</form>
+        	</div>
+        </div>
+    </body>
+</html>
