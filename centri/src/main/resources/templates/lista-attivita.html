@@ -6,8 +6,8 @@
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" th:href="@{fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
 		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" th:href="@{css/listutil.css}">
-		<link rel="stylesheet" type="text/css" th:href="@{css/listmain.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/listutil.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/listmain.css}">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" media="all" href="../static/css/styke.css" th:href="@{/css/style.css}" />
 		<link rel="stylesheet" type="text/css" media="all" href="../static/css/skel-noscript.css" th:href="@{/css/skel-noscript.css}" />
@@ -53,13 +53,11 @@
 							</tr>
 						</thead>
 						<tbody>
-								<tr th:each="activity : ${attivita}">
-									<td class="column1"><span th:text="${activity.id}"></span></td>
-									<td class="column2"><span th:text="${activity.nome}"></span></td>
-									<td class="column3"><span th:text="${activity.data}"></span></td>
-									<td class="column4"><span th:text="${activity.ora}"></span></td>
-									<td class="column5"><span th:text="${activity.centro}"></span></td>
-									<!-- <td class="column6"><span th:text="${activity.id}"></span></td>  -->
+								<tr th:each="att : ${attivita}">
+									<td class="column1"><span th:text="${att.id}"></span></td>
+									<td class="column2"><span th:text="${att.nome}"></span></td>
+									<td class="column3"><span th:text="${att.data}"></span></td>
+									<td class="column4"><span th:text="${att.ora}"></span></td>
 								</tr>
 						</tbody>
 					</table>

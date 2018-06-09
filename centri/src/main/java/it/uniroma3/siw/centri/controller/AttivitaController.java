@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.uniroma3.siw.centri.model.Attivita;
+import it.uniroma3.siw.centri.model.Centro;
 import it.uniroma3.siw.centri.service.AttivitaService;
+import it.uniroma3.siw.centri.service.CentroService;
 
 @Controller
 @RequestMapping("/attivita")
@@ -22,10 +24,12 @@ public class AttivitaController {
 	private String attivita(Model model) {
 		
 		List<Attivita> attivita = this.attivitaService.findAll();
-		model.addAttribute(attivita);
+		model.addAttribute("attivita",attivita);
 		
 		return "lista-attivita";
 	}
+	
+	
 
 
 }
