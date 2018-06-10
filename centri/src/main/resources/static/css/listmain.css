@@ -28,33 +28,71 @@ body, html {
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
 
-.limiter {
+.find {
+	background: #fff;
+	margin:10px;
+	position:relative;
+	left:8em;
+	font-size: 23px;
+}
+
+.find button[type="submit"] {
+	cursor: pointer;
+	width: 10%;
+	border: none;
+	border-radius:5px;
+	background: #000000;
+	color: #FFF;
+	margin: 0 10px 0 10px;
+	padding: 6px;
+	font-size: 15px;
+}
+
+.find button[type="submit"]:hover {
+	background: #eaeaea;
+	-webkit-transition: background 0.3s ease-in-out;
+	-moz-transition: background 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
+}
+
+#error{
+	color:red;
+	font-size: 20px;
+	margin: 10px 0 10px;
+}
+
+.list {
   width: 100%;
   margin: 0 auto;
 }
 
 .container-table100 {
   width: 100%;
-  min-height: 100vh;
-  background: #c850c0;
   background: #fff;
-
-  display: -webkit-box;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /*display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 33px 30px;
+  flex-wrap: wrap;*/
 }
 
 .wrap-table100 {
   width: 1170px;
 }
 
+.find h3{
+	display: block;
+	font-size: 40px;
+	font-weight: 700;
+	margin: 0 0 10px;
+}
+
 table {
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   border-spacing: 1;
   border-collapse: collapse;
   background: white;
@@ -63,6 +101,7 @@ table {
   width: 100%;
   margin: 0 auto;
   position: relative;
+  left:13em;
 }
 table * {
   position: relative;

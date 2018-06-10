@@ -4,4 +4,8 @@ INSERT INTO allievo(nome,cognome,email) VALUES ('Kaio Cesar','Alves Reis','mipia
 INSERT INTO allievo(nome,cognome,email) VALUES ('Paolo','Merialdo','paolo@gmail.com');
 INSERT INTO allievo(nome,cognome,email) VALUES ('Mario','Rossi','mario@gmail.com');
 INSERT INTO allievo(nome,cognome,email) VALUES ('Luca','Cabbibo','luca@gmail.com');
-INSERT INTO allievo(nome,cognome,email) VALUES ('Gino','Paoli','paoli@gmail.com');
+INSERT INTO allievo(nome,cognome,email) VALUES ('Stefano','Rossi','rossi@gmail.com');
+INSERT INTO allievo(nome,cognome,email) VALUES ('Arian','Verdi','ari_@gmail.com');
+INSERT INTO allievo(nome,cognome,email) VALUES ('Camilla','Neri','cami@gmail.com');
+INSERT INTO allievo(nome,cognome,email) VALUES ('Elena','Damiani','eleda@gmail.com');
+INSERT INTO allievo(nome,cognome,email) VALUES ('Enrico','Carati','rico@gmail.com');

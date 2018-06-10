@@ -24,16 +24,16 @@
 		margin-bottom: 2em;
 	}
 	
-		header h2
-		{
-			font-size: 3em;
-		}
+	header h2
+	{
+		font-size: 3em;
+	}
 
-		header .byline
-		{
-			margin: 0.5em 0 0 0;
-			padding: 0.50em 0 0.5em 0;
-		}
+	header .byline
+	{
+		margin: 0.5em 0 0 0;
+		padding: 0.50em 0 0.5em 0;
+	}
 
 /*********************************************************************************/
 /* Header                                                                        */

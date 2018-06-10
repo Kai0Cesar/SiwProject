@@ -11,7 +11,6 @@
 		
 </head>
     <body class="form">
-       
     	<div id="header">
 			<div class="container">
 					
@@ -23,23 +22,22 @@
 				
 					<nav id="nav">
 						<ul>
-							<li class="active"><a href="index.html">Homepage</a></li>
-							<li><a href="/attivita/lista">Attività</a></li>
-							<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
+							<li class="active"><a href="/">Homepage</a></li>
+							<li><a href="/allievo/nuovoAllievo">Iscrizione allievo</a></li>
 							<li><a href="/allievo/lista">Allievi</a></li>
-							<li><a href="twocolumn1.html">Logout</a></li>
+							<li><a href="/attivita/lista">Attività</a></li>
+							<li><a href="/logout">Logout</a></li>
 						</ul>
 					</nav>
 
 			</div>
 		</div>
 		<div id="main">
-		    <h3>Iscrizione</h3>
-    		<h4>Inserimento dati nuovo allievo</h4>
-    		<h4 id="error" th:text="${esistenza}"></h4> 
-    
+		
         <form id="contact" action="#" th:action="@{/allievo/nuovoAllievo}" th:object="${allievo}" method="post">
-            		
+		    		<h3>Iscrizione</h3>
+    				<h4>Inserimento dati nuovo allievo</h4>
+    				<h4 id="error" th:text="${esistenza}"></h4> 
 				<table>
 					<tr>
     					<td>
@@ -87,5 +85,10 @@
       				<span><button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button></span>
         		</form>
         	</div>
+        	<div id="copyright">
+				<div class="container">
+				Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+			</div>
+		</div>
     </body>
 </html>
