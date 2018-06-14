@@ -1,11 +1,12 @@
 package it.uniroma3.siw.centri.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -18,15 +19,26 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Attivita {
 
 	@Id
-	// @GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date data;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-	private Date dataOra;
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:mm")
+	private Date oraInizio;
+	
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:mm")
+	private Date oraFine;
 
 	@ManyToOne
 	private Centro centro;
@@ -35,7 +47,6 @@ public class Attivita {
 	private List<Allievo> allievi;
 
 	public Attivita() {
-		this.allievi = new ArrayList<>();
 	}
 
 	public Centro getCentro() {
@@ -62,12 +73,28 @@ public class Attivita {
 		this.nome = nome;
 	}
 
-	public Date getDataOra() {
-		return dataOra;
+	public Date getData() {
+		return data;
 	}
 
-	public void setDataOra(Date dataOra) {
-		this.dataOra = dataOra;
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public Date getOraInizio() {
+		return oraInizio;
+	}
+
+	public void setOraInizio(Date oraInizio) {
+		this.oraInizio = oraInizio;
+	}
+
+	public Date getOraFine() {
+		return oraFine;
+	}
+
+	public void setOraFine(Date oraFine) {
+		this.oraFine = oraFine;
 	}
 
 	public List<Allievo> getAllievi() {

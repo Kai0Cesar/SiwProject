@@ -1,7 +1,7 @@
 package it.uniroma3.siw.centri.repository;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -9,16 +9,16 @@ import it.uniroma3.siw.centri.model.Attivita;
 
 public interface AttivitaRepository extends CrudRepository<Attivita, Long> {
 
-	public void delete(Attivita attivita);
-
 	public void deleteById(Long id);
 
-	public boolean existsById(Long id);
+	public boolean existsByOraInizio(Date oraInizio);
+
+	public boolean existsByData(Date data);
+
+	public List<Attivita> findAllByOrderByDataAscOraInizioAsc();
 
 	public List<Attivita> findAll();
-
-	public Optional<Attivita> findById(Long id);
-
-	public Attivita save(Attivita attivita);
+	
+//	public List<Allievo> findAllAllievi();
 
 }

@@ -1,9 +1,6 @@
 package it.uniroma3.siw.centri.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,6 +13,8 @@ import javax.persistence.OneToMany;
 public class Centro {
 	
 	@Id
+	private Long id;
+	
 	private String nome;
 	
 	@Column(nullable = false)
@@ -29,14 +28,12 @@ public class Centro {
 	private String telefono;
 	
 	@OneToMany(mappedBy="centro", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Map<Long,Attivita> attivita;
+	private List<Attivita> attivita;
 	
 	@OneToMany(mappedBy="centro", cascade = CascadeType.ALL)
 	private List<Responsabile> responsabili;
 
 	public Centro() {
-		this.attivita = new HashMap<>();
-		this.responsabili = new ArrayList<>();
 	}
 
 	public String getEmail() {
@@ -79,15 +76,15 @@ public class Centro {
 		this.capienzaMassima = capienzaMassima;
 	}
 
-	public Map<Long, Attivita> getAttivita() {
+	public List< Attivita> getAttivita() {
 		return attivita;
 	}
 
-	public void setAttivita(Map<Long, Attivita> attivita) {
+	public void setAttivita(List< Attivita> attivita) {
 		this.attivita = attivita;
 	}
 	
 	public void addAttivita(Attivita attivita) {
-		this.attivita.put(attivita.getId(), attivita);
+		this.attivita.add(attivita.getId().intValue(), attivita);
 	}
 }

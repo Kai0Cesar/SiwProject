@@ -64,9 +64,7 @@ public class AllievoController {
 			return "form-allievo";
 		} else {
 			if (!bindingResult.hasErrors()) {
-				System.out.println("Nessun errore");
 				this.allievoService.save(allievo);
-				model.addAttribute("allievi", allievoService.findAll());
 				return "redirect:/allievo/lista";
 			}
 		}
@@ -75,8 +73,7 @@ public class AllievoController {
 	}
 
 	@GetMapping("/nuovoAllievo")
-	public String addAllievo(Model model) {
-		model.addAttribute("allievo",new Allievo());
+	public String showFormAllievo(Allievo allievo) {
 		return "form-allievo";
 
 	}

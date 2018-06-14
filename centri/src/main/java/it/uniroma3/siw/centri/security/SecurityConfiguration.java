@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import it.uniroma3.siw.centri.service.ResponsabileUserDetailsService;
+import it.uniroma3.siw.centri.service.ResponsabileDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -17,7 +17,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return new ResponsabileUserDetailsService();
+		return new ResponsabileDetailsService();
 	}
 
 	@Bean

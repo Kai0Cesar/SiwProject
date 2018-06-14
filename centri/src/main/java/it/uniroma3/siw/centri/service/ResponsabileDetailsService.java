@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import it.uniroma3.siw.centri.model.Responsabile;
 
 @Service
-public class ResponsabileUserDetailsService implements UserDetailsService {
+public class ResponsabileDetailsService implements UserDetailsService {
 
   @Autowired
   private ResponsabileService responsabileService;

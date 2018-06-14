@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Nuova Attivita</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/form.css" th:href="@{/css/form.css}" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css" th:href="@{/css/style.css}" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/skel-noscript.css"
+	th:href="@{/css/skel-noscript.css}" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style-desktop.css"
+	th:href="@{/css/style-desktop.css}" />
+
+</head>
+<body class="form">
+
+	<div id="header">
+		<div class="container">
+
+			<!-- Logo -->
+			<div id="logo">
+				<h1>
+					<a href="#">Gestione Centro</a>
+				</h1>
+			</div>
+			<!-- Nav -->
+
+			<nav id="nav">
+				<ul>
+					<li class="active"><a href="/">Homepage</a></li>
+					<li><a href="/attivita/lista">Attività</a></li>
+					<li><a href="/attivita/nuovaAttivita">Nuova attività</a></li>
+					<li><a href="twocolumn1.html">Informazioni</a></li>
+					<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
+					<li><a href="/allievo/lista">Allievi</a></li>
+					<li><a href="/casiDuso">Casi d'uso</a></li>
+				</ul>
+			</nav>
+
+		</div>
+	</div>
+	<div id="main">
+		<h3>Iscrizione</h3>
+		<h4>Inserimento dati nuova attività</h4>
+		<h4 id="error" th:text="${esistenza}"></h4>
+
+		<form id="contact" action="#" th:action="@{/attivita/nuovaAttivita}" th:object="${attivita}" method="post">
+
+			<table>
+				
+				<tr>
+					<td>
+						<div>Nome (*):</div>
+						<div>
+							<input type="text" th:field="*{nome}" />
+						</div> <!--  <span id="error" th:if="${#fields.hasErrors('nome')}" th:text="#{richiesto.allievo.nome}">Error</span>-->
+					</td>
+				</tr>
+				  <tr>
+					<td>
+						<div>Data:</div>
+						<div>
+							<input type="date" th:field="*{data}" />
+						</div>
+					</td>
+				<tr>
+				 <tr>
+					<td>
+						<div>Ora inizio:</div>
+						<div>
+							<input type="time" th:field="*{oraInizio}" />
+						</div>
+					</td>
+				
+					<td>
+						<div>Ora fine:</div>
+						<div>
+							<input type="time" th:field="*{oraFine}" />
+						</div>
+					</td>
+				<tr>
+			</table>
+
+			<span><button name="reset" type="reset" id="contact-reset"data-submit="...Reset">Cancella</button></span>
+			<span><button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button></span>
+		</form>
+	</div>
+</body>
+</html>

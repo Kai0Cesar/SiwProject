@@ -31,7 +31,7 @@ public class AllievoService {
 	}
 
 	public boolean existsByEmail(String email) {
-		return allievoRepository.existsByEmail(email);
+		return allievoRepository.existsById(email);
 	}
 	
 	/*public boolean alreadyExists(Allievo allievo) {
@@ -43,7 +43,7 @@ public class AllievoService {
 	}
 
 	public Optional<Allievo> findByEmail(String email) {
-		return  allievoRepository.findByEmail(email);
+		return  allievoRepository.findById(email);
 	}
 
 	public Allievo save(Allievo allievo) {

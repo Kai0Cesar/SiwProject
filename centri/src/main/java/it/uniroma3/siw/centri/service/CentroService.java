@@ -20,16 +20,16 @@ public class CentroService {
 		centroRepository.delete(centro);
 	}
 
-	public void deleteById(String nome) {
-		centroRepository.deleteById(nome);
+	public void deleteById(Long id) {
+		centroRepository.deleteById(id);
 	}
 
 	public List<Centro> findAll() {
 		return centroRepository.findAll();
 	}
 
-	public Optional<Centro> findById(String nome) {
-		return centroRepository.findById(nome);
+	public Optional<Centro> findById(Long id) {
+		return centroRepository.findById(id);
 	}
 
 	public Centro save(Centro centro) {

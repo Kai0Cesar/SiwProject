@@ -1,5 +1,6 @@
 package it.uniroma3.siw.centri.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,13 +25,25 @@ public class AttivitaService {
 	public void deleteById(Long id) {
 		attivitaRepository.deleteById(id);
 	}
-	
+
 	public boolean existsById(Long id) {
 		return attivitaRepository.existsById(id);
 	}
 
+	public boolean existsByOra(Date oraInizio) {
+		return attivitaRepository.existsByOraInizio(oraInizio);
+	}
+
+	public boolean existsByData(Date data) {
+		return attivitaRepository.existsByData(data);
+	}
+
 	public List<Attivita> findAll() {
 		return attivitaRepository.findAll();
+	}
+	
+	public List<Attivita> findAllByOrderByDataAscOraAsc(){
+		return attivitaRepository.findAllByOrderByDataAscOraInizioAsc();
 	}
 
 	public Optional<Attivita> findById(Long id) {
@@ -40,5 +53,6 @@ public class AttivitaService {
 	public Attivita save(Attivita attivita) {
 		return attivitaRepository.save(attivita);
 	}
+	
 
 }
