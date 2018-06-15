@@ -35,5 +35,9 @@ public class CentroService {
 	public Centro save(Centro centro) {
 		return centroRepository.save(centro);
 	}
+	
+	public boolean existsByIndirizzo(String indirizzo) {
+		return centroRepository.existsByIndirizzo(indirizzo);
+	}
 
 }

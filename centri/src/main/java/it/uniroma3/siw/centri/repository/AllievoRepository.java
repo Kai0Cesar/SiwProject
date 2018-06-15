@@ -8,8 +8,9 @@ import it.uniroma3.siw.centri.model.Allievo;
 
 public interface AllievoRepository extends CrudRepository<Allievo, String> {
 
-	public void deleteByEmail(String email);
 
 	public List<Allievo> findAll();
+
+	public List<Allievo> findAllByAttivitaId(Long id);
 
 }

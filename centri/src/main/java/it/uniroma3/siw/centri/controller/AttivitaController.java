@@ -10,47 +10,44 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.uniroma3.siw.centri.model.Attivita;
 import it.uniroma3.siw.centri.service.AttivitaService;
 
 @Controller
-@RequestMapping("/attivita")
 public class AttivitaController {
-	
+
 	@Autowired
 	private AttivitaService attivitaService;
-	
-	
-//	@GetMapping("/lista")
-//	public String getAllievi(Model model) {
-//
-//		List<Allievo> allievi = this.attivitaService.findAllAllievi();
-//
-//		model.addAttribute("allievi", allievi);
-//
-//		return "lista-allievi";
-//	}
-	
-	
-	@GetMapping("/lista")
+
+	@GetMapping("/attivita/lista")
 	private String attivita(Model model) {
-		
+
 		List<Attivita> attivita = this.attivitaService.findAllByOrderByDataAscOraAsc();
-		model.addAttribute("attivita",attivita);
-		
+		model.addAttribute("attivita", attivita);
+
 		return "lista-attivita";
 	}
-	
-	
-	@PostMapping("/nuovaAttivita")
-	public String newAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, BindingResult bindingResult, Model model) {
 
-//		this.attivitaValidator.validate(attivita, bindingResult);
+	@GetMapping("/centro/{id}/attivita")
+	private String attivitaCentro(@PathVariable("id") Long id, Model model) {
 
-		if (this.attivitaService.existsByOra(attivita.getOraInizio()) && this.attivitaService.existsByData(attivita.getData()) ) {
+		List<Attivita> attivita = this.attivitaService.findAllByCentroId(id);
+		model.addAttribute("attivita", attivita);
+
+		return "lista-attivita";
+	}
+
+	@PostMapping("/attivita/nuovaAttivita")
+	public String newAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, BindingResult bindingResult,
+			Model model) {
+
+		// this.attivitaValidator.validate(attivita, bindingResult);
+
+		if (this.attivitaService.existsByOra(attivita.getOraInizio())
+				&& this.attivitaService.existsByData(attivita.getData())) {
 			model.addAttribute("esistenza", "Orario non disponibile");
 			return "form-attivita";
 		} else {
@@ -62,11 +59,10 @@ public class AttivitaController {
 		return "form-attivita";
 
 	}
-	
-	@GetMapping("/nuovaAttivita")
+
+	@GetMapping("/attivita/nuovaAttivita")
 	public String showFormAttivita(Attivita attivita) {
 		return "form-attivita";
 	}
-
 
 }

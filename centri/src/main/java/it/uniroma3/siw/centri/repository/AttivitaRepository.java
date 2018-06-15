@@ -18,7 +18,7 @@ public interface AttivitaRepository extends CrudRepository<Attivita, Long> {
 	public List<Attivita> findAllByOrderByDataAscOraInizioAsc();
 
 	public List<Attivita> findAll();
-	
-//	public List<Allievo> findAllAllievi();
+
+	public List<Attivita> findAllByCentroId(Long id);
 
 }

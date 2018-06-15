@@ -11,8 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.centri.model.Allievo;
@@ -20,7 +20,6 @@ import it.uniroma3.siw.centri.service.AllievoService;
 import it.uniroma3.siw.centri.validator.AllievoValidator;
 
 @Controller
-@RequestMapping("/allievo")
 public class AllievoController {
 
 	@Autowired
@@ -29,17 +28,25 @@ public class AllievoController {
 	@Autowired
 	public AllievoValidator allievoValidator;
 
-	@GetMapping("/lista")
+	@GetMapping("/allievo/lista")
 	public String getAllievi(Model model) {
 
 		List<Allievo> allievi = this.allievoService.findAll();
 
 		model.addAttribute("allievi", allievi);
-
+		return "lista-allievi";
+	}
+	
+	@GetMapping("/attivita/{id}/allievi")
+	private String allieviAttivita(@PathVariable("id") Long id,Model model) {
+		
+		List<Allievo> allievi = this.allievoService.findAllByAttivitaId(id);
+		model.addAttribute("allievi",allievi);
+		
 		return "lista-allievi";
 	}
 
-	@GetMapping("/")
+	@GetMapping("/allievo/")
 	public String searchAllievo(@RequestParam("email") String email, Model model) {
 
 		Optional<Allievo> allievo = this.allievoService.findByEmail(email);
@@ -54,7 +61,7 @@ public class AllievoController {
 		return "mostra-allievo";
 	}
 
-	@PostMapping("/nuovoAllievo")
+	@PostMapping("/allievo/nuovoAllievo")
 	public String newAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, BindingResult bindingResult, Model model) {
 
 		this.allievoValidator.validate(allievo, bindingResult);
@@ -72,7 +79,7 @@ public class AllievoController {
 
 	}
 
-	@GetMapping("/nuovoAllievo")
+	@GetMapping("/allievo/nuovoAllievo")
 	public String showFormAllievo(Allievo allievo) {
 		return "form-allievo";
 
