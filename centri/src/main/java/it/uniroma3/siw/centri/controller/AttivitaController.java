@@ -15,15 +15,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.uniroma3.siw.centri.model.Allievo;
 import it.uniroma3.siw.centri.model.Attivita;
 import it.uniroma3.siw.centri.service.AttivitaService;
+import it.uniroma3.siw.centri.service.CentroService;
 
 @Controller
 public class AttivitaController {
+	
+	
 
 	@Autowired
 	private AttivitaService attivitaService;
+	@Autowired
+	private CentroService centroService;
 
 	@GetMapping("/attivita/lista")
 	private String attivita(Model model) {
@@ -64,7 +68,9 @@ public class AttivitaController {
 	}
 
 	@GetMapping("/attivita/nuovaAttivita")
-	public String showFormAttivita(Attivita attivita) {
+	public String showFormAttivita(Model model) {
+		model.addAttribute("attivita", new Attivita());
+		model.addAttribute("centri",centroService.findAll());
 		return "form-attivita";
 	}
 	

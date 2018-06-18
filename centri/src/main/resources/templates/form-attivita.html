@@ -78,10 +78,12 @@
 				<tr>
 				  <tr>
 					<td>
-						<div>Centro id:</div>
-						<div>
-							<input type="text" th:field="*{centro}" />
-						</div>
+						<div>Centro:</div>
+						<select th:field="*{centro}">
+						<option th:each="centro : ${centri}" 
+						th:value="${centro.id}" 
+						th:text="${centro.nome}">Centro</option>
+						</select>	
 					</td>
 				<tr>
 			</table>

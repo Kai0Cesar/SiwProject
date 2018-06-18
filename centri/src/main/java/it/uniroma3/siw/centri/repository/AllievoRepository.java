@@ -12,5 +12,7 @@ public interface AllievoRepository extends CrudRepository<Allievo, String> {
 	public List<Allievo> findAll();
 
 	public List<Allievo> findAllByAttivitaId(Long id);
+	
+	public Allievo findAllByAttivitaIdAndEmail(Long id,String email);
 
 }

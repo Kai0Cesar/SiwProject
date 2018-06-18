@@ -48,5 +48,9 @@ public class AllievoService {
 	public List<Allievo> findAllByAttivitaId(Long id){
 		return allievoRepository.findAllByAttivitaId(id);
 	}
+	
+	public Allievo findAllByAttivitaIdAndEmail(Long id,String email) {
+		return allievoRepository.findAllByAttivitaIdAndEmail(id, email);
+	}
 
 }

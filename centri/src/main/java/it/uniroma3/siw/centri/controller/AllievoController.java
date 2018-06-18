@@ -36,14 +36,37 @@ public class AllievoController {
 		model.addAttribute("allievi", allievi);
 		return "lista-allievi";
 	}
-	
+
 	@GetMapping("/attivita/{id}/allievi")
-	private String allieviAttivita(@PathVariable("id") Long id,Model model) {
-		
+	private String allieviAttivita(@PathVariable("id") Long id, Model model) {
+
 		List<Allievo> allievi = this.allievoService.findAllByAttivitaId(id);
-		model.addAttribute("allievi",allievi);
-		
-		return "lista-allievi";
+		model.addAttribute("allievi", allievi);
+
+		return "attivita-allievi";
+	}
+
+	@PostMapping("/attivita/{id}/allievi")
+	private String searchAllievoAttivita(@PathVariable("id") Long id, @RequestParam("email") String email,
+			Model model) {
+
+		Allievo allievo = this.allievoService.findAllByAttivitaIdAndEmail(id, email);
+		Optional<Allievo> allievoDB = this.allievoService.findByEmail(email);
+
+		System.out.println(email);
+		if (allievo != null) {
+			model.addAttribute("esistenzaAttivita", "Allievo già iscritto all'attività");
+		} else {
+			if (!allievoDB.isPresent())
+				model.addAttribute("esistenzaDB", "Allievo non registrato");
+			else
+				model.addAttribute("esistenza", "Allievo non iscritto all'attività");
+
+		}
+		List<Allievo> allievi = this.allievoService.findAllByAttivitaId(id);
+		model.addAttribute("allievi", allievi);
+
+		return "attivita-allievi";
 	}
 
 	@GetMapping("/allievo/")
@@ -62,7 +85,8 @@ public class AllievoController {
 	}
 
 	@PostMapping("/allievo/nuovoAllievo")
-	public String newAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, BindingResult bindingResult, Model model) {
+	public String newAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, BindingResult bindingResult,
+			Model model) {
 
 		this.allievoValidator.validate(allievo, bindingResult);
 

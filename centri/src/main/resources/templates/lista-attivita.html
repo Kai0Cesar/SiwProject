@@ -64,7 +64,7 @@
 								<td class="column2"><span th:text="${#dates.format(activity.data, 'dd-MMM-yyyy')}"></span></td>
 								<td class="column3"><span th:text="${#dates.format(activity.oraInizio, 'HH:mm')}"></span></td>
 								<td class="column4"><span th:text="${#dates.format(activity.oraFine, 'HH:mm')}"></span></td>
-								<td class="column5"><span th:text="${activity.centro}"></span></td>
+								<td class="column5"><span th:text="${activity.centro.nome}"></span></td>
 								<td class="column6"><a th:href="@{/attivita/{id}/allievi(id=${activity.id})}">Lista allievi</a></td>  
 							</tr>
 						</tbody>
