@@ -1,25 +1,15 @@
-
-
-
-
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
 @font-face {
-  font-family: Ubuntu-Regular;
-  src: url('../fonts/ubuntu/Ubuntu-Regular.ttf'); 
+  font-family: ChaletBookBold;
+  src: url('../fonts/Chaletbook/ChaletBookBold.ttf'); 
 }
 
 @font-face {
-  font-family: Ubuntu-Bold;
-  src: url('../fonts/ubuntu/Ubuntu-Bold.ttf'); 
+  font-family: ChaletBook;
+  src: url('../fonts/Chaletbook/ChaletBook.ttf'); 
 }
-
-@font-face {
-  font-family: JosefinSans-Bold;
-  src: url('../fonts/JosefinSans/JosefinSans-Bold.ttf'); 
-}
-
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -33,12 +23,12 @@
 
 body, html {
 	height: 100%;
-	font-family: Ubuntu-Regular, sans-serif;
+	font-family: ChaletBookBold;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Ubuntu-Regular;
+	font-family: ChaletBookBold;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -64,7 +54,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Ubuntu-Regular;
+	font-family: Opensans-Bold;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -132,21 +122,21 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Ubuntu-Regular;
+  font-family: Opensans-Bold;
   font-size: 15px;
   color: #999999;
   line-height: 1.4;
 }
 
 .txt2 {
-  font-family: Ubuntu-Regular;
+  font-family: Opensans-Bold;
   font-size: 15px;
   color: #57b846;
   line-height: 1.4;
 }
 
 .txt3 {
-  font-family: Ubuntu-Bold;
+  font-family: Opensans-Bold;
   font-size: 15px;
   color: #57b846;
   line-height: 1.4;
@@ -206,7 +196,7 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: JosefinSans-Bold;
+  font-family: ChaletBookBold;
   font-size: 30px;
   color: #fff;
   line-height: 1.2;
@@ -234,7 +224,7 @@ iframe {
 }
 
 .input100 {
-  font-family: Ubuntu-Bold;
+  font-family: ChaletBook;
   font-size: 15px;
   color: #1b3815;
   line-height: 1.2;
@@ -307,11 +297,10 @@ iframe {
   border-radius: 25px;
   margin:20px 0 20px 0;
 
-  font-family: Ubuntu-Bold;
+  font-family: ChaletBookBold;
   font-size: 15px;
   color: #fff;
   line-height: 1.2;
-  text-transform: uppercase;
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -321,69 +310,7 @@ iframe {
 
 .login100-form-btn:hover {
   background-color: #e4e4e4;
-}
-
-
-/*------------------------------------------------------------------
-[ Alert validate ]*/
-
-.validate-input {
-  position: relative;
-}
-
-.alert-validate::before {
-  content: attr(data-validate);
-  position: absolute;
-  z-index: 1000;
-  max-width: 70%;
-  background-color: #fff;
-  border: 1px solid #c80000;
-  border-radius: 14px;
-  padding: 4px 25px 4px 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 10px;
-  pointer-events: none;
-
-  font-family: Ubuntu-Bold;
-  color: #c80000;
-  font-size: 13px;
-  line-height: 1.4;
-  text-align: left;
-
-  visibility: hidden;
-  opacity: 0;
-
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-}
-
-.alert-validate::after {
-  content: "\f06a";
-  font-family: FontAwesome;
-  display: block;
-  position: absolute;
-  z-index: 1100;
-  color: #c80000;
-  font-size: 16px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 16px;
-}
-
-.alert-validate:hover:before {
-  visibility: visible;
-  opacity: 1;
+  font-family: ChaletBookBold;
 }
 
 @media (max-width: 992px) {

@@ -10,7 +10,8 @@
 	<link rel="stylesheet" type="text/css" media="all" href="../static/css/style-desktop.css" th:href="@{/css/style-desktop.css}" />
 		
 </head>
-    <body class="form">
+    <body class="bodycontainer">
+       
     	<div id="header">
 			<div class="container">
 					
@@ -23,21 +24,22 @@
 					<nav id="nav">
 						<ul>
 							<li class="active"><a href="/">Homepage</a></li>
-							<li><a href="/allievo/nuovoAllievo">Iscrizione allievo</a></li>
-							<li><a href="/allievo/lista">Allievi</a></li>
 							<li><a href="/attivita/lista">Attività</a></li>
+							<li><a href="/allievo/lista">Allievi</a></li>
+							<li><a href="/centri">Centri</a></li>
 							<li><a href="/logout">Logout</a></li>
 						</ul>
 					</nav>
 
 			</div>
 		</div>
-		<div id="main">
-		
+		<div id="main"> 
         <form id="contact" action="#" th:action="@{/allievo/nuovoAllievo}" th:object="${allievo}" method="post">
-		    		<h3>Iscrizione</h3>
-    				<h4>Inserimento dati nuovo allievo</h4>
-    				<h4 id="error" th:text="${esistenza}"></h4> 
+        	
+        	<h3>Iscrizione</h3>
+    		<h4>Inserimento dati nuovo allievo</h4>
+    		<h4 id="error" th:text="${esistenza}"></h4>
+            		
 				<table>
 					<tr>
     					<td>
@@ -56,7 +58,7 @@
     				<tr>
     					<td>
       						<div>Email (*):</div>
-      						<div><input type="text" th:field="*{email}" /></div>
+      						<div><input type="email" th:field="*{email}" /></div>
       						<span id="error" th:if="${#fields.hasErrors('email')}" th:text="#{richiesto.allievo.email}">Error</span>
     					</td>
     				<tr>
@@ -86,8 +88,8 @@
         		</form>
         	</div>
         	<div id="copyright">
-				<div class="container">
-				Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+			<div class="container">
+				Design by: <a href="">Edoardo Montebelli [487882],</a> <a href="">Kaio Cesar Alves Reis [484997]</a>  
 			</div>
 		</div>
     </body>

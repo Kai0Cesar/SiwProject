@@ -16,39 +16,37 @@ public class AllievoService {
 
 	@Autowired
 	private AllievoRepository allievoRepository;
-	
 
 	public long count() {
 		return allievoRepository.count();
 	}
-	
+
 	public void delete(Allievo allievo) {
 		allievoRepository.delete(allievo);
 	}
 
 	public void deleteByEmail(String email) {
-		allievoRepository.deleteByEmail(email);
+		allievoRepository.deleteById(email);
 	}
 
 	public boolean existsByEmail(String email) {
-		return allievoRepository.existsByEmail(email);
+		return allievoRepository.existsById(email);
 	}
-	
-	/*public boolean alreadyExists(Allievo allievo) {
-		return allievoRepository.alreadyExists(allievo);
-	}*/
 
-	public List<Allievo> findAll(){
+	public List<Allievo> findAll() {
 		return allievoRepository.findAll();
 	}
 
 	public Optional<Allievo> findByEmail(String email) {
-		return  allievoRepository.findByEmail(email);
+		return allievoRepository.findById(email);
 	}
 
 	public Allievo save(Allievo allievo) {
 		return allievoRepository.save(allievo);
 	}
 	
-	
+	public List<Allievo> findAllByAttivitaId(Long id){
+		return allievoRepository.findAllByAttivitaId(id);
+	}
+
 }

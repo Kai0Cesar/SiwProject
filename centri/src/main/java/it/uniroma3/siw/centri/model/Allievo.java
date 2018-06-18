@@ -1,10 +1,12 @@
 package it.uniroma3.siw.centri.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -29,6 +31,9 @@ public class Allievo {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataDiNascita;
+	
+	@ManyToMany(mappedBy="allievi")
+	private List<Attivita> attivita;
 
 	public Allievo() {
 	}

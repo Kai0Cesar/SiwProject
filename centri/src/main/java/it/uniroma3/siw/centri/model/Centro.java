@@ -1,42 +1,58 @@
 package it.uniroma3.siw.centri.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Centro {
-	
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
 	private String nome;
-	
+
 	@Column(nullable = false)
 	private String indirizzo;
 
 	private String email;
-	
+
 	private Integer capienzaMassima;
 
 	@Column(nullable = false)
 	private String telefono;
-	
-	@OneToMany(mappedBy="centro", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Map<Long,Attivita> attivita;
-	
-	@OneToMany(mappedBy="centro", cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "centro", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Attivita> attivita;
+
+	@OneToMany(mappedBy = "centro", cascade = CascadeType.ALL)
 	private List<Responsabile> responsabili;
 
 	public Centro() {
-		this.attivita = new HashMap<>();
-		this.responsabili = new ArrayList<>();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<Responsabile> getResponsabili() {
+		return responsabili;
+	}
+
+	public void setResponsabili(List<Responsabile> responsabili) {
+		this.responsabili = responsabili;
 	}
 
 	public String getEmail() {
@@ -79,15 +95,15 @@ public class Centro {
 		this.capienzaMassima = capienzaMassima;
 	}
 
-	public Map<Long, Attivita> getAttivita() {
+	public List<Attivita> getAttivita() {
 		return attivita;
 	}
 
-	public void setAttivita(Map<Long, Attivita> attivita) {
+	public void setAttivita(List<Attivita> attivita) {
 		this.attivita = attivita;
 	}
-	
+
 	public void addAttivita(Attivita attivita) {
-		this.attivita.put(attivita.getId(), attivita);
+		this.attivita.add(attivita.getId().intValue(), attivita);
 	}
 }

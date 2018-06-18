@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Centri</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/listutil.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/listmain.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" />
+	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/skel-noscript.css}" />
+	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style-desktop.css}" />
+<!--===============================================================================================-->
+
+</head>
+<body class="list">
+
+	<!-- Header -->
+		<div id="header">
+			<div class="container">
+					
+				<!-- Logo -->
+					<div id="logo">
+						<h1><a href="#">Gestione Centro</a></h1>
+					</div>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="active"><a href="/">Homepage</a></li>
+							<li><a href="/attivita/lista">Attività</a></li>
+							<li><a href="/attivita/nuovaAttivita">Nuova attività</a></li>
+							<li><a href="twocolumn1.html">Informazioni</a></li>
+							<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
+							<li><a href="/allievo/lista">Allievi</a></li>
+							<li><a href="/casiDuso">Casi d'uso</a></li>
+						</ul>
+					</nav>
+
+			</div>
+		</div>
+	<!-- Header -->
+			
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+			
+		<!--	<div>
+		<!--<form action="#" th:action="@{/allievo/}" method="get">
+			<div>
+				<span>Cerca allievo</span> <span><input type="text" name="email" /></span> 
+				<span><button type="submit">Cerca</button></span>
+				<p id="error" th:text="${esistenza}"></p>    
+			</div>
+		</form>
+	</div>-->
+	
+	
+	<div><a href="/nuovoCentro">Nuovo centro</a></div>
+			
+			<h3>Lista Centri</h3>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Nome</th>
+								<th class="column2">Indirizzo</th>
+								<th class="column3">Email</th>
+								<th class="column4">Telefono</th>
+								<th class="column5">Capienza Massima</th>
+								<th class="column6">Attività</th>
+								<th class="column7">Responsabili</th>
+								
+								
+							</tr>
+						</thead>
+						<tbody>
+								<tr th:each="centro : ${centri}">
+									<td class="column1"><span th:text="${centro.nome}"></span></td>
+									<td class="column2"><span th:text="${centro.indirizzo}"></span></td>
+									<td class="column3"><span th:text="${centro.email}"></span></td>
+									<td class="column4"><span th:text="${centro.telefono}"></span></td>
+									<td class="column4"><span th:text="${centro.capienzaMassima}"></span></td>
+									<td class="column6"><a th:href="@{/centro/{id}/attivita(id=${centro.id})}">Attivià</a></td>
+									<td class="column7"><a th:href="@{/centro/{id}/responsabili(id=${centro.id})}">Responsabili</a></td>
+									
+								</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
