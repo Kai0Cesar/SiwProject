@@ -16,7 +16,7 @@
 	th:href="@{/css/style-desktop.css}" />
 
 </head>
-<body class="form">
+<body class="bodycontainer">
 
 	<div id="header">
 		<div class="container">
@@ -33,23 +33,19 @@
 				<ul>
 					<li class="active"><a href="/">Homepage</a></li>
 					<li><a href="/attivita/lista">Attività</a></li>
-					<li><a href="/attivita/nuovaAttivita">Nuova attività</a></li>
-					<li><a href="twocolumn1.html">Informazioni</a></li>
-					<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
 					<li><a href="/allievo/lista">Allievi</a></li>
-					<li><a href="/casiDuso">Casi d'uso</a></li>
+					<li><a href="/centri">Centri</a></li>
+					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</nav>
 
 		</div>
 	</div>
 	<div id="main">
+		<form id="contact" action="#" th:action="@{/attivita/nuovaAttivita}" th:object="${attivita}" method="post">
 		<h3>Iscrizione</h3>
 		<h4>Inserimento dati nuova attività</h4>
 		<h4 id="error" th:text="${esistenza}"></h4>
-
-		<form id="contact" action="#" th:action="@{/attivita/nuovaAttivita}" th:object="${attivita}" method="post">
-
 			<table>
 				
 				<tr>
@@ -70,17 +66,14 @@
 				<tr>
 				 <tr>
 					<td>
+					<div class="time-box">
 						<div>Ora inizio:</div>
-						<div>
-							<input type="time" th:field="*{oraInizio}" />
-						</div>
-					</td>
-				
-					<td>
+						<div><input type="time" th:field="*{oraInizio}" /></div>
+					</div>
+					<div class="time-box">
 						<div>Ora fine:</div>
-						<div>
-							<input type="time" th:field="*{oraFine}" />
-						</div>
+						<div><input type="time" th:field="*{oraFine}" /></div>
+					</div>
 					</td>
 				<tr>
 				  <tr>
@@ -92,10 +85,14 @@
 					</td>
 				<tr>
 			</table>
-
-			<span><button name="reset" type="reset" id="contact-reset"data-submit="...Reset">Cancella</button></span>
-			<span><button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button></span>
+			<span><button name="reset" type="reset" data-submit="...Reset">Cancella</button></span>
+			<span><button name="submit" type="submit" data-submit="...Sending">Submit</button></span>
 		</form>
 	</div>
+	<div id="copyright">
+			<div class="container">
+				Design by: <a href="">Edoardo Montebelli [487882],</a> <a href="">Kaio Cesar Alves Reis [484997]</a>  
+			</div>
+		</div>
 </body>
 </html>

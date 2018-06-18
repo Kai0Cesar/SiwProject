@@ -5,62 +5,54 @@
 	<title>Allievi iscritti</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" th:href="@{fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" th:href="@{/css/listutil.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/listmain.css}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" />
 	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/skel-noscript.css}" />
 	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style-desktop.css}" />
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 
 </head>
-<body class="list">
+<body class="bodycontainer">
 
 	<!-- Header -->
-		<div id="header">
-			<div class="container">
-					
-				<!-- Logo -->
-					<div id="logo">
-						<h1><a href="#">Gestione Centro</a></h1>
-					</div>
-				
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li class="active"><a href="/">Homepage</a></li>
-							<li><a href="/attivita/lista">Attività</a></li>
-							<li><a href="/attivita/nuovaAttivita">Nuova attività</a></li>
-							<li><a href="twocolumn1.html">Informazioni</a></li>
-							<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
-							<li><a href="/allievo/lista">Allievi</a></li>
-							<li><a href="/casiDuso">Casi d'uso</a></li>
-						</ul>
-					</nav>
-
-			</div>
-		</div>
-	<!-- Header -->
+	<div id="header">
+		<div class="container">
 			
-	<div class="limiter">
+			<!-- Logo -->
+			<div id="logo">
+				<h1><a href="#">Gestione Centro</a></h1>
+			</div>
+						
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li class="active"><a href="/">Homepage</a></li>
+					<li><a href="/attivita/lista">Attività</a></li>
+					<li><a href="/allievo/lista">Allievi</a></li>
+					<li><a href="/centri">Centri</a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- Header -->
+	
 		<div class="container-table100">
 			<div class="wrap-table100">
-			
-			<div>
-		<form action="#" th:action="@{/allievo/}" method="get">
-			<div>
-				<span>Cerca allievo</span> <span><input type="text" name="email" /></span> 
-				<span><button type="submit">Cerca</button></span>
-				<p id="error" th:text="${esistenza}"></p>    
-			</div>
-		</form>
-	</div>
-			
-			<h3>Lista Allievi</h3>
-    		<h4>Inserimento dati nuovo allievo</h4>
+				<div class="head">
+					<h3>Lista Allievi</h3>
+					<form action="#" th:action="@{/allievo/}" method="get">
+							<span>Cerca allievo</span> <span><input type="text" name="email" /></span> 
+							<span><button type="submit">Cerca</button></span>
+							<span><button type="button" onClick="location.href='/allievo/nuovoAllievo'">+</button></span>
+							<p id="error" th:text="${esistenza}"></p>    
+					</form>	
+				</div>			
 				<div class="table100">
 					<table>
 						<thead>
@@ -75,19 +67,23 @@
 							</tr>
 						</thead>
 						<tbody>
-								<tr th:each="allievo : ${allievi}">
-									<td class="column1"><span th:text="${allievo.nome}"></span></td>
-									<td class="column2"><span th:text="${allievo.cognome}"></span></td>
-									<td class="column3"><span th:text="${allievo.email}"></span></td>
-									<td class="column4"><span th:text="${allievo.telefono}"></span></td>
-									<td class="column5"><span th:text="${#dates.format(allievo.dataDiNascita, 'dd-MMM-yyyy')}"></span></td>
-									<td class="column6"><span th:text="${allievo.luogoDiNascita}"></span></td>
-									
-								</tr>
+							<tr th:each="allievo : ${allievi}">
+								<td class="column1"><span th:text="${allievo.nome}"></span></td>
+								<td class="column2"><span th:text="${allievo.cognome}"></span></td>
+								<td class="column3"><span th:text="${allievo.email}"></span></td>
+								<td class="column4"><span th:text="${allievo.telefono}"></span></td>
+								<td class="column5"><span th:text="${#dates.format(allievo.dataDiNascita, 'dd-MMM-yyyy')}"></span></td>
+								<td class="column6"><span th:text="${allievo.luogoDiNascita}"></span></td>
+								
+							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+		</div>
+	<div id="copyright">
+		<div class="container">
+			Design by: <a href="">Edoardo Montebelli [487882],</a> <a href="">Kaio Cesar Alves Reis [484997]</a>  
 		</div>
 	</div>
 </body>

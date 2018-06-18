@@ -17,7 +17,7 @@
 <!--===============================================================================================-->
 
 </head>
-<body class="list">
+<body class="bodycontainer">
 
 	<!-- Header -->
 		<div id="header">
@@ -33,11 +33,9 @@
 						<ul>
 							<li class="active"><a href="/">Homepage</a></li>
 							<li><a href="/attivita/lista">Attività</a></li>
-							<li><a href="/attivita/nuovaAttivita">Nuova attività</a></li>
-							<li><a href="twocolumn1.html">Informazioni</a></li>
-							<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
 							<li><a href="/allievo/lista">Allievi</a></li>
-							<li><a href="/casiDuso">Casi d'uso</a></li>
+							<li><a href="/centri">Centri</a></li>
+							<li><a href="/logout">Logout</a></li>
 						</ul>
 					</nav>
 
@@ -45,24 +43,18 @@
 		</div>
 	<!-- Header -->
 			
-	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
 			
-		<!--	<div>
-		<!--<form action="#" th:action="@{/allievo/}" method="get">
-			<div>
-				<span>Cerca allievo</span> <span><input type="text" name="email" /></span> 
-				<span><button type="submit">Cerca</button></span>
-				<p id="error" th:text="${esistenza}"></p>    
-			</div>
-		</form>
-	</div>-->
-	
-	
-	<div><a href="/nuovoCentro">Nuovo centro</a></div>
-			
-			<h3>Lista Centri</h3>
+		<div class="head">
+					<h3>Lista Centri</h3>
+					<form action="#" th:action="@{/allievo/}" method="get">
+							<span>Cerca centro</span> <span><input type="text" name="email" /></span> 
+							<span><button type="submit">Cerca</button></span>
+							<span><button type="button" onClick="location.href='/nuovoCentro'">+</button></span>
+							<p id="error" th:text="${esistenza}"></p>    
+					</form>	
+				</div>
 				<div class="table100">
 					<table>
 						<thead>
@@ -93,6 +85,10 @@
 					</table>
 				</div>
 			</div>
+		</div>
+		<div id="copyright">
+		<div class="container">
+			Design by: <a href="">Edoardo Montebelli [487882],</a> <a href="">Kaio Cesar Alves Reis [484997]</a>  
 		</div>
 	</div>
 </body>

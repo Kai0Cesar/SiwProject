@@ -1,47 +1,51 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Attivita</title>
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" th:href="@{fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" th:href="@{/css/listutil.css}">
-		<link rel="stylesheet" type="text/css" th:href="@{/css/listmain.css}">
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" media="all" href="../static/css/styke.css" th:href="@{/css/style.css}" />
-		<link rel="stylesheet" type="text/css" media="all" href="../static/css/skel-noscript.css" th:href="@{/css/skel-noscript.css}" />
-		<link rel="stylesheet" type="text/css" media="all" href="../static/css/style-desktop.css" th:href="@{/css/style-desktop.css}" />
+	<title>Attività</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	</head>
-<body class="list">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/listmain.css}">
+
+	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" />
+	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/skel-noscript.css}" />
+	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style-desktop.css}" />
+</head>
+<body class="bodycontainer">
+
+	<!-- Header -->
 	<div id="header">
-			<div class="container">
-					
-				<!-- Logo -->
-					<div id="logo">
-						<h1><a href="#">Gestione Centro</a></h1>
-					</div>
-				
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li class="active"><a href="/">Homepage</a></li>
-							<li><a href="/attivita/lista">Attività</a></li>
-							<li><a href="/attivita/nuovaAttivita">Nuova attività</a></li>
-							<li><a href="twocolumn1.html">Informazioni</a></li>
-							<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
-							<li><a href="/allievo/lista">Allievi</a></li>
-							<li><a href="/casiDuso">Casi d'uso</a></li>
-						</ul>
-					</nav>
-
-			</div>
+		<div class="container">			
+			<!-- Logo -->
+			<div id="logo">
+				<h1><a href="#">Gestione Centro</a></h1>
+			</div>			
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li class="active"><a href="/">Homepage</a></li>
+					<li><a href="/attivita/lista">Attività</a></li>
+					<li><a href="/allievo/lista">Allievi</a></li>
+					<li><a href="/centri">Centri</a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</nav>
 		</div>
-	<div class="limiter">
+	</div>
+	<!-- Header -->
+	
 		<div class="container-table100">
 			<div class="wrap-table100">
-			<h3>Lista Attivita</h3>
+			<div class="head">
+				<h3>Lista Attività</h3>
+				<form action="#" th:action="@{/attivita/}" method="get">
+							<span>Cerca attività</span> <span><input type="text" name="email" /></span> 
+							<span><button type="submit">Cerca</button></span>
+							<span><button type="button" onClick="location.href='/attivita/nuovaAttivita'">+</button></span>
+							<p id="error" th:text="${esistenza}"></p>    
+				</form>
+				</div>	
 				<div class="table100">
 					<table>
 						<thead>
@@ -55,18 +59,22 @@
 							</tr>
 						</thead>
 						<tbody>
-								<tr th:each="activity : ${attivita}">
-									<td class="column1"><span th:text="${activity.nome}"></span></td>
-									<td class="column2"><span th:text="${#dates.format(activity.data, 'dd-MMM-yyyy')}"></span></td>
-									<td class="column3"><span th:text="${#dates.format(activity.oraInizio, 'HH:mm')}"></span></td>
-									<td class="column4"><span th:text="${#dates.format(activity.oraFine, 'HH:mm')}"></span></td>
-									<td class="column5"><span th:text="${activity.centro}"></span></td>
-									<td class="column6"><a th:href="@{/attivita/{id}/allievi(id=${activity.id})}">Allievi</a></td>  
-								</tr>
+							<tr th:each="activity : ${attivita}">
+								<td class="column1"><span th:text="${activity.nome}"></span></td>
+								<td class="column2"><span th:text="${#dates.format(activity.data, 'dd-MMM-yyyy')}"></span></td>
+								<td class="column3"><span th:text="${#dates.format(activity.oraInizio, 'HH:mm')}"></span></td>
+								<td class="column4"><span th:text="${#dates.format(activity.oraFine, 'HH:mm')}"></span></td>
+								<td class="column5"><span th:text="${activity.centro}"></span></td>
+								<td class="column6"><a th:href="@{/attivita/{id}/allievi(id=${activity.id})}">Lista allievi</a></td>  
+							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+		</div>
+	<div id="copyright">
+		<div class="container">
+			Design by: <a href="">Edoardo Montebelli [487882],</a> <a href="">Kaio Cesar Alves Reis [484997]</a>  
 		</div>
 	</div>
 </body>

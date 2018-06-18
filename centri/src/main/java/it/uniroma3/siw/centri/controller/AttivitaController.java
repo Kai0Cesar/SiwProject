@@ -1,6 +1,7 @@
 package it.uniroma3.siw.centri.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import it.uniroma3.siw.centri.model.Allievo;
 import it.uniroma3.siw.centri.model.Attivita;
 import it.uniroma3.siw.centri.service.AttivitaService;
 
@@ -64,5 +67,19 @@ public class AttivitaController {
 	public String showFormAttivita(Attivita attivita) {
 		return "form-attivita";
 	}
+	
+	@GetMapping("/attivita/")
+	public String searchAttivita(@RequestParam("id") Long id, Model model) {
 
+		Optional<Attivita> attivita = this.attivitaService.findById(id);
+
+		if (!attivita.isPresent()) {
+
+			model.addAttribute("esistenza", "Attivita non trovata");
+			return attivita(model);
+		}
+		model.addAttribute("attivita", attivita.get());
+
+		return "mostra-allievo";
+	}
 }

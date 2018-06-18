@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" media="all" href="../static/css/style-desktop.css" th:href="@{/css/style-desktop.css}" />
 		
 </head>
-    <body class="form">
+    <body class="bodycontainer">
        
     	<div id="header">
 			<div class="container">
@@ -25,23 +25,19 @@
 						<ul>
 							<li class="active"><a href="/">Homepage</a></li>
 							<li><a href="/attivita/lista">Attività</a></li>
-							<li><a href="/attivita/nuovaAttivita">Nuova attività</a></li>
-							<li><a href="twocolumn1.html">Informazioni</a></li>
-							<li><a href="/allievo/nuovoAllievo">Iscrivi allievo</a></li>
 							<li><a href="/allievo/lista">Allievi</a></li>
-							<li><a href="/casiDuso">Casi d'uso</a></li>
+							<li><a href="/centri">Centri</a></li>
+							<li><a href="/logout">Logout</a></li>
 						</ul>
 					</nav>
 
 			</div>
 		</div>
 		<div id="main">
-		    <h3>Iscrizione</h3>
+        <form id="contact" action="#" th:action="@{/nuovoCentro}" th:object="${centro}" method="post">
+        	<h3>Iscrizione</h3>
     		<h4>Inserimento dati nuovo Centro</h4>
     		<h4 id="error" th:text="${esistenza}"></h4> 
-    
-        <form id="contact" action="#" th:action="@{/nuovoCentro}" th:object="${centro}" method="post">
-            		
 				<table>
 					<tr>
     					<td>
@@ -81,5 +77,10 @@
       				<span><button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Invia</button></span>
         		</form>
         	</div>
+        	<div id="copyright">
+			<div class="container">
+				Design by: <a href="">Edoardo Montebelli [487882],</a> <a href="">Kaio Cesar Alves Reis [484997]</a>  
+			</div>
+		</div>
     </body>
 </html>

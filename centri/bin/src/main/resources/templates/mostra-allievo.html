@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="ISO-8859-1">
+<title>Allievo</title>
+</head>
+<body>
+<body>
+    <div>
+    	<h4>Allievo</h4>
+		<div>
+			<span th:text="${allievo.nome}"></span>
+   		</div>
+		<div>
+			<span th:text="${allievo.cognome}"></span>
+   		</div>
+		<div>
+			<span th:text="${allievo.email}"></span>
+   		</div>
+   		 <div>
+			<span th:text="${allievo.telefono}"></span>
+   		</div>
+   		<div>
+			<span th:text="${allievo.luogoDiNascita}"></span>
+   		</div>
+   		<div>
+			<span th:text="${allievo.dataDiNascita}"></span>
+   		</div>
+    </div>
+    
+    <div><a href="/allievo/lista">Ritorna alla lista</a></div>
+</body>
+
+</body>
+</html>
