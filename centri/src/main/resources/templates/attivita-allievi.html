@@ -47,9 +47,8 @@
 				<div class="head">
 					<h3>Lista Allievi</h3>
 					<form action="#" th:action="@{./allievi}" method="post">
-							<span>Cerca allievo</span> <span><input type="text" name="email"/></span> 
+							<span>Inserisci allievo</span> <span><input type="text" name="email"/></span> 
 							<span><button type="submit">Cerca</button></span>
-							<span><button type="button" onClick="location.href='/allievo/nuovoAllievo'">+</button></span>
 							<p id="error" th:text="${esistenzaAttivita}"></p>    
 						    <p id="error" th:text="${esistenzaDB}"></p>   
 						    <p id="error" th:text="${esistenza}"></p>  

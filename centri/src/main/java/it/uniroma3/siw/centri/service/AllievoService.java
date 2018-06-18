@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.siw.centri.model.Allievo;
+import it.uniroma3.siw.centri.model.Attivita;
 import it.uniroma3.siw.centri.repository.AllievoRepository;
+import it.uniroma3.siw.centri.repository.AttivitaRepository;
 
 @Service
 @Transactional
@@ -16,6 +18,9 @@ public class AllievoService {
 
 	@Autowired
 	private AllievoRepository allievoRepository;
+	
+	@Autowired
+	private AttivitaRepository attivitaRepository;
 
 	public long count() {
 		return allievoRepository.count();
@@ -51,6 +56,12 @@ public class AllievoService {
 	
 	public Allievo findAllByAttivitaIdAndEmail(Long id,String email) {
 		return allievoRepository.findAllByAttivitaIdAndEmail(id, email);
+	}
+	
+	public void addByAttivitaId(Long id,String email) {
+		Attivita a = this.attivitaRepository.findById(id).get();
+		Allievo alievo=this.findByEmail(email).get();
+		a.getAllievi().add(alievo);
 	}
 
 }

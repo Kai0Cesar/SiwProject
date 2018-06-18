@@ -59,8 +59,10 @@ public class AllievoController {
 		} else {
 			if (!allievoDB.isPresent())
 				model.addAttribute("esistenzaDB", "Allievo non registrato");
-			else
-				model.addAttribute("esistenza", "Allievo non iscritto all'attività");
+			else {
+				model.addAttribute("esistenza", "Allievo iscritto all'attività con successo");
+				this.allievoService.addByAttivitaId(id, email);
+			}
 
 		}
 		List<Allievo> allievi = this.allievoService.findAllByAttivitaId(id);
@@ -68,6 +70,8 @@ public class AllievoController {
 
 		return "attivita-allievi";
 	}
+	
+	
 
 	@GetMapping("/allievo/")
 	public String searchAllievo(@RequestParam("email") String email, Model model) {
