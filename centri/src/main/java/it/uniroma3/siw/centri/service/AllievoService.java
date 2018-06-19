@@ -18,7 +18,7 @@ public class AllievoService {
 
 	@Autowired
 	private AllievoRepository allievoRepository;
-	
+
 	@Autowired
 	private AttivitaRepository attivitaRepository;
 
@@ -42,26 +42,31 @@ public class AllievoService {
 		return allievoRepository.findAll();
 	}
 
-	public Optional<Allievo> findByEmail(String email) {
-		return allievoRepository.findById(email);
+	public Allievo findByEmail(String email) {
+		Optional<Allievo> allievo = allievoRepository.findById(email);
+		if (!allievo.isPresent())
+			return null;
+
+		return allievo.get();
 	}
 
 	public Allievo save(Allievo allievo) {
 		return allievoRepository.save(allievo);
 	}
-	
-	public List<Allievo> findAllByAttivitaId(Long id){
+
+	public List<Allievo> findAllByAttivitaId(Long id) {
 		return allievoRepository.findAllByAttivitaId(id);
 	}
-	
-	public Allievo findAllByAttivitaIdAndEmail(Long id,String email) {
+
+	public Allievo findAllByAttivitaIdAndEmail(Long id, String email) {
 		return allievoRepository.findAllByAttivitaIdAndEmail(id, email);
 	}
-	
-	public void addByAttivitaId(Long id,String email) {
+
+	public void addByAttivitaId(Long id, String email) {
 		Attivita a = this.attivitaRepository.findById(id).get();
-		Allievo alievo=this.findByEmail(email).get();
+		Allievo alievo = this.findByEmail(email);
 		a.getAllievi().add(alievo);
 	}
+	
 
 }

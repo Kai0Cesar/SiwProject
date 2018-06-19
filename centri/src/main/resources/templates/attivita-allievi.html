@@ -46,13 +46,17 @@
 			<div class="wrap-table100">
 				<div class="head">
 					<h3>Lista Allievi</h3>
-					<form action="#" th:action="@{./allievi}" method="post">
-							<span>Inserisci allievo</span> <span><input type="text" name="email"/></span> 
-							<span><button type="submit">Cerca</button></span>
+					<form action="#" th:action="@{./iscriviAllievo}" method="post">
+							<span>Iscrivi allievo</span> <span><input type="email" name="email"/></span> 
+							<span><button type="submit">Iscrivi</button></span>
 							<p id="error" th:text="${esistenzaAttivita}"></p>    
 						    <p id="error" th:text="${esistenzaDB}"></p>   
 						    <p id="error" th:text="${esistenza}"></p>  
-							
+					</form>
+					<form action="#" th:action="@{./disiscriviAllievo}" method="post">
+							<span>Disiscrivi allievo</span> <span><input type="email" name="email"/></span> 
+							<span><button type="submit">Disiscrivi</button></span>
+							<p id="error" th:text="${presenzaAttivita}"></p>    
 					</form>	
 				</div>			
 				<div class="table100">

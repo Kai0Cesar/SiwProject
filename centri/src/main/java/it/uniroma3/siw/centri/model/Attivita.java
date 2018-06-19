@@ -24,7 +24,7 @@ public class Attivita {
 
 	@Column(nullable = false)
 	private String nome;
-	
+
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -32,12 +32,12 @@ public class Attivita {
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIME)
-    @DateTimeFormat(pattern = "HH:mm")
+	@DateTimeFormat(pattern = "HH:mm")
 	private Date oraInizio;
-	
+
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIME)
-    @DateTimeFormat(pattern = "HH:mm")
+	@DateTimeFormat(pattern = "HH:mm")
 	private Date oraFine;
 
 	@ManyToOne
@@ -112,68 +112,27 @@ public class Attivita {
 	public void removeAllievo(Allievo allievo) {
 		this.allievi.remove(allievo);
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((allievi == null) ? 0 : allievi.hashCode());
-		result = prime * result + ((centro == null) ? 0 : centro.hashCode());
-		result = prime * result + ((data == null) ? 0 : data.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((oraFine == null) ? 0 : oraFine.hashCode());
-		result = prime * result + ((oraInizio == null) ? 0 : oraInizio.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Attivita other = (Attivita) obj;
-		if (allievi == null) {
-			if (other.allievi != null)
-				return false;
-		} else if (!allievi.equals(other.allievi))
-			return false;
-		if (centro == null) {
-			if (other.centro != null)
-				return false;
-		} else if (!centro.equals(other.centro))
-			return false;
-		if (data == null) {
-			if (other.data != null)
-				return false;
-		} else if (!data.equals(other.data))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (oraFine == null) {
-			if (other.oraFine != null)
-				return false;
-		} else if (!oraFine.equals(other.oraFine))
-			return false;
-		if (oraInizio == null) {
-			if (other.oraInizio != null)
-				return false;
-		} else if (!oraInizio.equals(other.oraInizio))
-			return false;
-		return true;
+	
+	public Allievo getRiserva() {
+		Allievo riserva;
+		try {
+		riserva=this.allievi.get(this.centro.getCapienzaMassima());
+		}catch (IndexOutOfBoundsException e) {
+			riserva=null;
+		}
+		return riserva;
 	}
 	
-	
+	public boolean privilegiato(Allievo allievo) {
+		
+		boolean privilegiato=false;
+		int i=0;
+		while( i<this.centro.getCapienzaMassima() && !privilegiato) {
+			privilegiato=this.allievi.get(i).equals(allievo);
+			i++;
+		}
+		
+		return privilegiato;
+	}
 
 }

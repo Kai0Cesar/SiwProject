@@ -86,9 +86,27 @@ public class Allievo {
 		this.telefono = telefono;
 	}
 
+	public List<Attivita> getAttivita() {
+		return attivita;
+	}
+
+	public void setAttivita(List<Attivita> attivita) {
+		this.attivita = attivita;
+	}
+	
+	public void removeAttivita(Attivita attivita) {
+		this.attivita.remove(attivita);
+	}
+
 	@Override
 	public String toString() {
 		return super.toString() + " " + this.luogoDiNascita + " " + this.dataDiNascita.toString();
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		Allievo that =(Allievo) o;
+		return this.getEmail().equals(that.getEmail());
 	}
 
 }

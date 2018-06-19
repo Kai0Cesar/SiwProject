@@ -1,7 +1,6 @@
 package it.uniroma3.siw.centri.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.mail.MessagingException;
 import javax.validation.Valid;
@@ -82,14 +81,14 @@ public class AttivitaController {
 	@GetMapping("/attivita/")
 	public String searchAttivita(@RequestParam("id") Long id, Model model) {
 
-		Optional<Attivita> attivita = this.attivitaService.findById(id);
+		Attivita attivita = this.attivitaService.findById(id);
 
-		if (!attivita.isPresent()) {
+		if (attivita==null) {
 
 			model.addAttribute("esistenza", "Attivita non trovata");
 			return attivita(model);
 		}
-		model.addAttribute("attivita", attivita.get());
+		model.addAttribute("attivita", attivita);
 
 		return "mostra-allievo";
 	}
@@ -97,13 +96,16 @@ public class AttivitaController {
 	@GetMapping("/attivita/{id}/elimina")
 	private String eliminaAttivita(@PathVariable("id") Long id, Model model) throws MessagingException {
 
-		Optional<Attivita> a=this.attivitaService.findById(id);
-		if(a.isPresent()) {
-			for(Allievo allievo :a.get().getAllievi()) {
-				this.emailSender.send(allievo.getEmail(),"Attività annullata","Caro allievo, ci dispiace informarla che l'attività "+a.get().getNome()+" è stata annullata");
+		Attivita attivita=this.attivitaService.findById(id);
+		if(attivita!=null) {
+			
+			for(Allievo allievo :attivita.getAllievi()) {
+				this.emailSender.send(allievo.getEmail(),"Attività annullata","Caro allievo, ci dispiace informarla che l'attività "+attivita.getNome()+" è stata annullata");
 			}
-			this.attivitaService.delete(a.get());
-			model.addAttribute("attivita", this.attivitaService.findAllByCentroId(a.get().getCentro().getId()));
+			attivita.getAllievi().clear();  					
+			attivita.getCentro().getAttivita().remove(attivita);
+			this.attivitaService.deleteById(id);
+			model.addAttribute("attivita", this.attivitaService.findAllByCentroId(attivita.getCentro().getId()));
 			return "lista-attivita";
 		}
 		return "home-page";

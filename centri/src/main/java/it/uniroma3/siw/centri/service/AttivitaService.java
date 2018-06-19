@@ -41,24 +41,25 @@ public class AttivitaService {
 	public List<Attivita> findAll() {
 		return attivitaRepository.findAll();
 	}
-	
-	public List<Attivita> findAllByOrderByDataAscOraAsc(){
+
+	public List<Attivita> findAllByOrderByDataAscOraAsc() {
 		return attivitaRepository.findAllByOrderByDataAscOraInizioAsc();
 	}
 
-	public Optional<Attivita> findById(Long id) {
-		return attivitaRepository.findById(id);
+	public Attivita findById(Long id) {
+		Optional<Attivita> attivita = attivitaRepository.findById(id);
+		if (!attivita.isPresent())
+			return null;
+
+		return attivita.get();
 	}
 
 	public Attivita save(Attivita attivita) {
 		return attivitaRepository.save(attivita);
 	}
-	
-	public List<Attivita> findAllByCentroId(Long id){
+
+	public List<Attivita> findAllByCentroId(Long id) {
 		return attivitaRepository.findAllByCentroId(id);
 	}
-	
-	
-	
 
 }
