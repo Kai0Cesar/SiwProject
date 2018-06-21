@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,12 +30,21 @@ public class ResponsabileService {
 		return responsabileRepository.findAll();
 	}
 
-	public  Optional<Responsabile> findByEmail(String email){
-		return responsabileRepository.findByEmail(email);
+	public  Responsabile findByEmail(String email){
+		Optional<Responsabile> responsabile= responsabileRepository.findById(email);
+		if (!responsabile.isPresent())
+			return null;
+
+		return responsabile.get();
 	}
 
 	public Responsabile save(Responsabile responsabile) {
 		return responsabileRepository.save(responsabile);
+	}
+	
+	public Responsabile getCorrente() {
+		Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+		return this.findByEmail(auth.getName());
 	}
 
 	

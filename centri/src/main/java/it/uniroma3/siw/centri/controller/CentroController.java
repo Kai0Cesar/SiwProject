@@ -8,11 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.uniroma3.siw.centri.model.Centro;
 import it.uniroma3.siw.centri.service.CentroService;
 
 @Controller
+@RequestMapping("/direttore")
 public class CentroController {
 
 	@Autowired
@@ -23,12 +25,12 @@ public class CentroController {
 
 		model.addAttribute("centri", this.centroService.findAll());
 
-		return "lista-centri";
+		return "/direttore/lista-centri";
 	}
 
 	@GetMapping("/nuovoCentro")
 	public String showFormCentro(Centro centro) {
-		return "form-centro";
+		return "/direttore/form-centro";
 	}
 
 	@PostMapping("/nuovoCentro")
@@ -36,11 +38,11 @@ public class CentroController {
 
 		if (this.centroService.existsByIndirizzo(centro.getIndirizzo())) {
 			model.addAttribute("esistenza", "Centro già esistente");
-			return "form-centro";
+			return "/direttore/form-centro";
 		}
 		this.centroService.save(centro);
 		model.addAttribute("centri", this.centroService.findAll());
-		return "lista-centri";
+		return "/direttore/lista-centri";
 	}
 
 }

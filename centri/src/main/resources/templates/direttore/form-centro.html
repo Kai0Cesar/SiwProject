@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <title>Nuovo Centro</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -22,19 +22,20 @@
 				<!-- Nav -->
 				
 					<nav id="nav">
-						<ul>
-							<li class="active"><a href="/">Homepage</a></li>
-							<li><a href="/attivita/lista">Attività</a></li>
-							<li><a href="/allievo/lista">Allievi</a></li>
-							<li><a href="/centri">Centri</a></li>
-							<li><a href="/logout">Logout</a></li>
-						</ul>
-					</nav>
-
+				<ul>							
+					<li class="active"><a href="/">Homepage</a></li>
+					<li sec:authorize="hasRole('ROLE_centro')"><a th:href="@{/{ruolo}/{id}/attivita(ruolo=${@responsabileService.corrente.ruolo},id=${@responsabileService.corrente.centroId})}">Attivita</a></li>
+					<li sec:authorize="hasRole('ROLE_direttore')"><a href="/direttore/attivita">Attività</a></li>
+					<li><a href="/allievo/lista">Allievi</a></li>
+					<li sec:authorize="hasRole('ROLE_direttore')"><a href="/direttore/centri">Centri</a></li>
+					<li><a href="/casiDuso">Casi d'uso</a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</nav>
 			</div>
 		</div>
 		<div id="main">
-        <form id="contact" action="#" th:action="@{/nuovoCentro}" th:object="${centro}" method="post">
+        <form id="contact" action="#" th:action="@{./nuovoCentro}" th:object="${centro}" method="post">
         	<h3>Iscrizione</h3>
     		<h4>Inserimento dati nuovo Centro</h4>
     		<h4 id="error" th:text="${esistenza}"></h4> 

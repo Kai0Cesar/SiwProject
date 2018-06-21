@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 	<title>Allievi iscritti</title>
 	<meta charset="UTF-8">
@@ -19,11 +19,13 @@
 				<h1><a href="#">Gestione Centro</a></h1>
 			</div>
 			<nav id="nav">
-				<ul>
+				<ul>							
 					<li class="active"><a href="/">Homepage</a></li>
-					<li><a href="/attivita/lista">Attività</a></li>
+					<li sec:authorize="hasRole('ROLE_centro')"><a th:href="@{/{ruolo}/{id}/attivita(ruolo=${@responsabileService.corrente.ruolo},id=${@responsabileService.corrente.centroId})}">Attivita</a></li>
+					<li sec:authorize="hasRole('ROLE_direttore')"><a href="/direttore/attivita">Attività</a></li>
 					<li><a href="/allievo/lista">Allievi</a></li>
-					<li><a href="/centri">Centri</a></li>
+					<li sec:authorize="hasRole('ROLE_direttore')"><a href="/direttore/centri">Centri</a></li>
+					<li><a href="/casiDuso">Casi d'uso</a></li>
 					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</nav>

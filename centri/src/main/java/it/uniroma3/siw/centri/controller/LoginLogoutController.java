@@ -45,7 +45,12 @@ public class LoginLogoutController {
 		return "login";
 	}
 	
-	@PostMapping("/logout")
+	@GetMapping("/errore")
+	public String getErrore() {
+		return "errore";
+	}
+	
+	@GetMapping("/logout")
 	public String getLogout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		

@@ -94,6 +94,10 @@ public class Responsabile {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+	
+	public Long getCentroId() {
+		return this.centro.getId();
+	}
 
 	@Override
 	public String toString() {

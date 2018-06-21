@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.uniroma3.siw.centri.model.Allievo;
 import it.uniroma3.siw.centri.model.Attivita;
 import it.uniroma3.siw.centri.model.EmailSender;
+import it.uniroma3.siw.centri.model.Responsabile;
 import it.uniroma3.siw.centri.service.AttivitaService;
 import it.uniroma3.siw.centri.service.CentroService;
+import it.uniroma3.siw.centri.service.ResponsabileService;
 
 @Controller
 public class AttivitaController {
@@ -28,12 +30,15 @@ public class AttivitaController {
 	private AttivitaService attivitaService;
 	
 	@Autowired
+	private ResponsabileService responsabileService;
+	
+	@Autowired
 	private CentroService centroService;
 	
 	@Autowired
 	private EmailSender emailSender;
 
-	@GetMapping("/attivita/lista")
+	@GetMapping("/direttore/attivita")
 	private String attivita(Model model) {
 
 		List<Attivita> attivita = this.attivitaService.findAllByOrderByDataAscOraAsc();
@@ -61,7 +66,13 @@ public class AttivitaController {
 		} else {
 			if (!bindingResult.hasErrors()) {
 				this.attivitaService.save(attivita);
-				return "redirect:/attivita/lista";
+				Responsabile responsabile=responsabileService.getCorrente();
+				
+				if(responsabile.getRuolo().equals("direttore"))
+					return this.attivita(model);
+				else
+					return this.attivitaCentro(responsabile.getCentroId(), model);
+				
 			}
 		}
 		return "form-attivita";
@@ -91,17 +102,22 @@ public class AttivitaController {
 	private String eliminaAttivita(@PathVariable("id") Long id, Model model) throws MessagingException {
 
 		Attivita attivita=this.attivitaService.findById(id);
+		Responsabile responsabile=responsabileService.getCorrente();
+
 		if(attivita!=null) {
-			
 			for(Allievo allievo :attivita.getAllievi()) {
 				this.emailSender.send(allievo.getEmail(),"Attività annullata","Caro allievo, ci dispiace informarla che l'attività "+attivita.getNome()+" è stata annullata");
 			}
 			attivita.getAllievi().clear();  					
 			attivita.getCentro().getAttivita().remove(attivita);
 			this.attivitaService.deleteById(id);
-			model.addAttribute("attivita", this.attivitaService.findAllByCentroId(attivita.getCentro().getId()));
-			return "lista-attivita";
 		}
-		return "home-page";
+		
+		if(responsabile.getRuolo().equals("direttore"))
+			return this.attivita(model);
+		else
+			return this.attivitaCentro(responsabile.getCentroId(), model);
+		
+		
 	}
 }

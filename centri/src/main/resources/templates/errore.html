@@ -31,40 +31,10 @@
 
 		</div>
 	</div>
-	<!-- Header -->
-	<div id="main-allievo">
-		<h1><span th:text="${allievo.nome} + ' ' + ${allievo.cognome} + ','"></span></h1>
-		<section id="content">
-			
-			<h2>Informazioni personali</h2>
-			<div>
-				<div>Email:</div>
-				<span th:text="${allievo.email}"></span>
-			</div>
-			<div>
-				<div>Telefono:</div>
-				<span th:text="${allievo.telefono}"></span>
-			</div>
-			<div>
-				<div>Luogo di nascita:</div>
-				<span th:text="${allievo.luogoDiNascita}"></span>
-			</div>
-			<div>
-				<div>Data di nascita:</div>
-				<span th:text="${allievo.dataDiNascita}"></span>
-			</div>
-		</section>
-		<section id="content-activity">
-			
-			<h2>Attività a cui partecipa</h2>
-			<!-- Da vedere se rendere visibile le attività all'allievo		-->		
-			<table>
-				<tr th:each="attivita : ${allievo.attivita}">
-					<td><span th:text="${attivita.nome}"></span></td>
-				</tr>			
-			</table> 		
-		</section>
-		<a href="/allievo/lista" class="button">Torna alla lista</a>
+	<div id="main">
+		<div class="container">
+		Non hai il permesso per visualizzare questa pagina
+		</div>
 	</div>
 	<div id="copyright">
 		<div class="container">

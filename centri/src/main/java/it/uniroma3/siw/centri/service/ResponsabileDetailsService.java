@@ -1,7 +1,5 @@
 package it.uniroma3.siw.centri.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,13 +18,13 @@ public class ResponsabileDetailsService implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-    Optional<Responsabile> responsabile= responsabileService.findByEmail(email);
+    Responsabile responsabile= responsabileService.findByEmail(email);
 
     UserBuilder builder = null;
-    if (responsabile.isPresent()) {
+    if (responsabile!=null) {
       builder = org.springframework.security.core.userdetails.User.withUsername(email);
-      builder.password(new BCryptPasswordEncoder().encode(responsabile.get().getPassword()));
-      builder.roles(responsabile.get().getRuolo());
+      builder.password(new BCryptPasswordEncoder().encode(responsabile.getPassword()));
+      builder.roles(responsabile.getRuolo());
     } else {
       throw new UsernameNotFoundException("User not found.");
     }
