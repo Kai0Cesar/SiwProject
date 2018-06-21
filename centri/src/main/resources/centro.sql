@@ -1,4 +1,4 @@
-INSERT INTO centro(nome,indirizzo,telefono) VALUES ('Centro A','Via a','331');
-INSERT INTO centro(nome,indirizzo,telefono) VALUES ('Centro B','Via b','332');
-INSERT INTO centro(nome,indirizzo,telefono) VALUES ('Centro C','Via c','333');
-INSERT INTO centro(nome,indirizzo,telefono) VALUES ('Centro D','Via d','334');
+INSERT INTO centro(id,nome,indirizzo,telefono,capienza_massima) VALUES (101,'Centro A','Via a','331',5);
+INSERT INTO centro(id,nome,indirizzo,telefono,capienza_massima) VALUES (102,'Centro B','Via b','332',5);
+INSERT INTO centro(id,nome,indirizzo,telefono,capienza_massima) VALUES (103,'Centro C','Via c','333',5);
+INSERT INTO centro(id,nome,indirizzo,telefono,capienza_massima) VALUES (104,'Centro D','Via d','334',5);

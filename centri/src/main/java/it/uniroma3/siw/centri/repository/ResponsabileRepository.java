@@ -11,4 +11,5 @@ public interface ResponsabileRepository extends CrudRepository<Responsabile, Str
 	public void deleteByEmail(String email);
 
 	public List<Responsabile> findAll();
+
 }

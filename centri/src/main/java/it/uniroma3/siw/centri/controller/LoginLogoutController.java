@@ -97,7 +97,7 @@ public class LoginLogoutController {
 			session.setAttribute("responsabile", responsabile);
 		}
 
-		return "redirect:/";
+		return "home-page";
 	}
 
 }

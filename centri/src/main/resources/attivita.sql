@@ -1,4 +1,1 @@
-INSERT INTO attivita(id,nome,centro_nome) VALUES (1,'Calcio','Centro A');
-INSERT INTO attivita(id,nome,centro_nome) VALUES (2,'Volley','Centro B');
-INSERT INTO attivita(id,nome,centro_nome) VALUES (3,'Tennis','Centro C');
-INSERT INTO attivita(id,nome,centro_nome) VALUES (4,'Golf','Centro D');
+INSERT INTO attivita(id,nome,data,ora_inizio,ora_fine,centro_id) VALUES (0,'Calcio','2018-03-03','11:30','12:30',102);
