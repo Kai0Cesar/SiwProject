@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: centri
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: edoardo
+Built-By: kaio
 Implementation-Vendor-Id: it.uniroma3.siw
-Build-Jdk: 1.8.0_171
+Build-Jdk: 1.8.0_25
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/centri
 Created-By: Maven Integration for Eclipse

@@ -24,22 +24,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
 	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	    http.authorizeRequests()
-	    .antMatchers("/").hasRole("ruolo")
+	    .antMatchers("/login").permitAll()
 	    .and()
 	    .formLogin()
 	    .loginPage("/login")
+	    .and()
+	    .oauth2Login().loginPage("/login")
 	    .and()
 	    .logout().permitAll().logoutSuccessUrl("/login")
 	    .and()
 	    .csrf().disable();
 	  }
-
 }

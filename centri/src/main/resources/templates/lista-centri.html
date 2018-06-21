@@ -65,22 +65,19 @@
 								<th class="column4">Telefono</th>
 								<th class="column5">Capienza Massima</th>
 								<th class="column6">Attività</th>
-								<th class="column7">Responsabili</th>
-								
-								
+								<th class="column7">Responsabili</th>								
 							</tr>
 						</thead>
 						<tbody>
-								<tr th:each="centro : ${centri}">
-									<td class="column1"><span th:text="${centro.nome}"></span></td>
-									<td class="column2"><span th:text="${centro.indirizzo}"></span></td>
-									<td class="column3"><span th:text="${centro.email}"></span></td>
-									<td class="column4"><span th:text="${centro.telefono}"></span></td>
-									<td class="column4"><span th:text="${centro.capienzaMassima}"></span></td>
-									<td class="column6"><a th:href="@{/centro/{id}/attivita(id=${centro.id})}">Attivià</a></td>
-									<td class="column7"><a th:href="@{/centro/{id}/responsabili(id=${centro.id})}">Responsabili</a></td>
-									
-								</tr>
+							<tr th:each="centro : ${centri}">
+								<td class="column1"><span th:text="${centro.nome}"></span></td>
+								<td class="column2"><span th:text="${centro.indirizzo}"></span></td>
+								<td class="column3"><span th:text="${centro.email}"></span></td>
+								<td class="column4"><span th:text="${centro.telefono}"></span></td>
+								<td class="column4"><span th:text="${centro.capienzaMassima}"></span></td>
+								<td class="column6"><a th:href="@{/centro/{id}/attivita(id=${centro.id})}"><button type="button">Lista</button></a></td>
+								<td class="column7"><a th:href="@{/centro/{id}/responsabili(id=${centro.id})}"><button type="button">Responsabili</button></a></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>

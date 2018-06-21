@@ -40,10 +40,10 @@
 			<div class="head">
 				<h3>Lista Attività</h3>
 				<form action="#" th:action="@{/attivita/}" method="get">
-							<span>Cerca attività</span> <span><input type="text" name="email" /></span> 
-							<span><button type="submit">Cerca</button></span>
-							<span><button type="button" onClick="location.href='/attivita/nuovaAttivita'">+</button></span>
-							<p id="error" th:text="${esistenza}"></p>    
+					<span>Cerca attività</span> <span><input type="text" name="email" /></span> 
+					<span><button type="submit">Cerca</button></span>
+					<span><button type="button" onClick="location.href='/attivita/nuovaAttivita'">+</button></span>
+					<p id="error" th:text="${esistenza}"></p>    
 				</form>
 				</div>	
 				<div class="table100">
@@ -56,7 +56,7 @@
 								<th class="column4">Ora Fine</th>
 								<th class="column5">Centro</th>
 								<th class="column6">Allievi</th>
-								<th class="column7"></th>
+								<th class="column7">Cancella</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -66,8 +66,8 @@
 								<td class="column3"><span th:text="${#dates.format(activity.oraInizio, 'HH:mm')}"></span></td>
 								<td class="column4"><span th:text="${#dates.format(activity.oraFine, 'HH:mm')}"></span></td>
 								<td class="column5"><span th:text="${activity.centro.nome}"></span></td>
-								<td class="column6"><a th:href="@{/attivita/{id}/allievi(id=${activity.id})}">Lista allievi</a></td>  
-								<td class="column7"><a th:href="@{/attivita/{id}/elimina(id=${activity.id})}">Elimina</a></td>
+								<td class="column6"><a th:href="@{/attivita/{id}/allievi(id=${activity.id})}"><button type="button">Lista</button></a></td>  
+								<td class="column7"><a th:href="@{/attivita/{id}/elimina(id=${activity.id})}"><button type="button">Elimina</button></a></td>
 							</tr>
 						</tbody>
 					</table>

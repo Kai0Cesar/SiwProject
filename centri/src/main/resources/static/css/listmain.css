@@ -36,19 +36,18 @@ body, html {
 
 .head button[type="submit"], button[type="button"] {
 	cursor: pointer;
-	width: 8%;
+	width:6%;
 	border: none;
 	border-radius:5px;
 	background: #000000;
 	color: #FFF;
-	margin: 0 10px 0 10px;
 	padding: 6px;
 	font-size: 15px;
 	font-family:ChaletBook;
 }
 
 .head button[type="submit"]:hover, button[type="button"]:hover {
-	background: #eaeaea;
+	background: #454545;
 	-webkit-transition: background 0.3s ease-in-out;
 	-moz-transition: background 0.3s ease-in-out;
 	transition: background-color 0.3s ease-in-out;
@@ -56,23 +55,33 @@ body, html {
 
 .head button[type="button"]{
 	position:relative;
-	left:57%;
+	left:62%;
 	border-radius:50%;
 	width:4%;
 	font-weight:bold;
 	font-size:25px;
 }
 
-.head input[type="text"] {
-	border-radius:2%;
+.head input[type="text"],input[type="email"]  {
+	border-radius:5px;
 	height:25px;
 	background: #eaeaea
+}
+
+.box {
+	display:block;
+	float:left;
+	width:45%;
+	margin:10px 0 10px;
+}
+
+.box button[type="submit"]{
+	width:15%;
 }
 
 #error{
 	color:red;
 	font-size: 20px;
-	margin: 10px 0 10px;
 }
 
 .list {
@@ -110,6 +119,25 @@ table {
   	position: relative;
   	left:13em;
 }
+
+.column7 button[type="button"]{
+	width:100%;
+	background:#e60000;
+}
+
+.column7 button[type="button"]:hover{
+	background:#b30000;
+}
+
+.column6 button[type="button"]{
+	width:50px;
+	background:#000;
+}
+
+.column6 button[type="button"]:hover{
+	background:#454545;
+}
+
 table * {
   	position: relative;
 }
@@ -173,32 +201,40 @@ tbody tr:hover {
 
 .column1 {
   width: 260px;
-  padding-left: 40px;
+  padding-left:10px;
   padding-top: 10px;
+   text-align: center;
 }
 
 .column2 {
   width: 160px;
+   text-align: center;
 }
 
 .column3 {
   width: 245px;
+   text-align: center;
 }
 
 .column4 {
   width: 110px;
-  text-align: left;
+  text-align: center;
 }
 
 .column5 {
   width: 170px;
-  text-align: left;
+  text-align: center;
 }
 
 .column6 {
   width: 222px;
-  text-align: left;
-  padding-right: 62px;
+  text-align: center;
+}
+
+.column7 {
+  width: 50px;
+  text-align: center;
+  padding-right: 60px;
 }
 
 
@@ -264,7 +300,8 @@ tbody tr:hover {
   .column6,
   .column1,
   .column2,
-  .column3 {
+  .column3,
+  .column7 {
     width: 100%;
   }
 

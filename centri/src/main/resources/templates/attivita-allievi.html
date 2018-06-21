@@ -5,30 +5,19 @@
 	<title>Allievi iscritti</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{/css/listutil.css}">
+	
 	<link rel="stylesheet" type="text/css" th:href="@{/css/listmain.css}">
-	<!--===============================================================================================-->
+	
 	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" />
 	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/skel-noscript.css}" />
 	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style-desktop.css}" />
-	<!--===============================================================================================-->
-
 </head>
 <body class="bodycontainer">
-
-	<!-- Header -->
 	<div id="header">
 		<div class="container">
-			
-			<!-- Logo -->
 			<div id="logo">
 				<h1><a href="#">Gestione Centro</a></h1>
 			</div>
-						
-			<!-- Nav -->
 			<nav id="nav">
 				<ul>
 					<li class="active"><a href="/">Homepage</a></li>
@@ -40,23 +29,21 @@
 			</nav>
 		</div>
 	</div>
-	<!-- Header -->
-	
 		<div class="container-table100">
 			<div class="wrap-table100">
 				<div class="head">
 					<h3>Lista Allievi</h3>
-					<form action="#" th:action="@{./iscriviAllievo}" method="post">
-							<span>Iscrivi allievo</span> <span><input type="email" name="email"/></span> 
-							<span><button type="submit">Iscrivi</button></span>
-							<p id="error" th:text="${esistenzaAttivita}"></p>    
-						    <p id="error" th:text="${esistenzaDB}"></p>   
-						    <p id="error" th:text="${esistenza}"></p>  
+					<form class="box" th:action="@{./iscriviAllievo}" method="post">
+						<span>Iscrivi allievo</span> <span><input type="email" name="email"/></span> 
+						<span><button type="submit">Conferma</button></span>
+						<p id="error" th:text="${esistenzaAttivita}"></p>    
+						<p id="error" th:text="${esistenzaDB}"></p>   
+						<p id="error" th:text="${esistenza}"></p>  
 					</form>
-					<form action="#" th:action="@{./disiscriviAllievo}" method="post">
-							<span>Disiscrivi allievo</span> <span><input type="email" name="email"/></span> 
-							<span><button type="submit">Disiscrivi</button></span>
-							<p id="error" th:text="${presenzaAttivita}"></p>    
+					<form class="box" th:action="@{./disiscriviAllievo}" method="post">
+						<span>Disiscrivi allievo</span> <span><input type="email" name="email"/></span> 
+						<span><button type="submit">Conferma</button></span>
+						<p id="error" th:text="${presenzaAttivita}"></p>    
 					</form>	
 				</div>			
 				<div class="table100">
@@ -68,8 +55,7 @@
 								<th class="column3">Email</th>
 								<th class="column4">Telefono</th>
 								<th class="column5">Data di nascita</th>
-								<th class="column6">Luogo di nascita</th>
-								
+								<th class="column6">Luogo di nascita</th>								
 							</tr>
 						</thead>
 						<tbody>
@@ -80,7 +66,6 @@
 								<td class="column4"><span th:text="${allievo.telefono}"></span></td>
 								<td class="column5"><span th:text="${#dates.format(allievo.dataDiNascita, 'dd-MMM-yyyy')}"></span></td>
 								<td class="column6"><span th:text="${allievo.luogoDiNascita}"></span></td>
-								
 							</tr>
 						</tbody>
 					</table>

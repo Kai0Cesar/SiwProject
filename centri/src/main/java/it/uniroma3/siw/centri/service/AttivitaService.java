@@ -50,7 +50,6 @@ public class AttivitaService {
 		Optional<Attivita> attivita = attivitaRepository.findById(id);
 		if (!attivita.isPresent())
 			return null;
-
 		return attivita.get();
 	}
 
@@ -60,6 +59,10 @@ public class AttivitaService {
 
 	public List<Attivita> findAllByCentroId(Long id) {
 		return attivitaRepository.findAllByCentroId(id);
+	}
+	
+	public Attivita findByNome(String nome) {
+		return attivitaRepository.findByNome(nome);
 	}
 
 }

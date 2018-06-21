@@ -13,7 +13,6 @@ public class AllievoValidator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "richiesto");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "richiesto");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cognome", "richiesto");
-
 	}
 
 	public boolean supports(Class<?> clazz) {

@@ -71,7 +71,6 @@ public class AllievoController {
 				model.addAttribute("esistenza", "Allievo iscritto all'attività con successo");
 				this.allievoService.addByAttivitaId(id, email);
 			}
-
 		}
 		List<Allievo> allievi = this.allievoService.findAllByAttivitaId(id);
 		model.addAttribute("allievi", allievi);
@@ -94,13 +93,10 @@ public class AllievoController {
 				this.emailSender.send(riserva.getEmail(), "Privilegiato",
 						"Caro allievo, le informiamo che, a causa di una disiscrizione da parte di un altro allievo, lei ora non è più una riserva all'attività "
 								+ attivita.getNome() + ".Buona giornata.");
-
 			}
 			attivita.removeAllievo(allievo);
-			allievo.removeAttivita(attivita);
-			
+			allievo.removeAttivita(attivita);			
 		}
-
 		List<Allievo> allievi = this.allievoService.findAllByAttivitaId(id);
 		model.addAttribute("allievi", allievi);
 
@@ -113,7 +109,6 @@ public class AllievoController {
 		Allievo allievo = this.allievoService.findByEmail(email);
 
 		if (allievo == null) {
-
 			model.addAttribute("esistenza", "Allievo non trovato");
 			return getAllievi(model);
 		}
@@ -123,8 +118,7 @@ public class AllievoController {
 	}
 
 	@PostMapping("/allievo/nuovoAllievo")
-	public String newAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, BindingResult bindingResult,
-			Model model) {
+	public String newAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, BindingResult bindingResult, Model model) {
 
 		this.allievoValidator.validate(allievo, bindingResult);
 
@@ -138,13 +132,11 @@ public class AllievoController {
 			}
 		}
 		return "form-allievo";
-
 	}
 
 	@GetMapping("/allievo/nuovoAllievo")
 	public String showFormAllievo(Allievo allievo) {
 		return "form-allievo";
-
 	}
 
 }

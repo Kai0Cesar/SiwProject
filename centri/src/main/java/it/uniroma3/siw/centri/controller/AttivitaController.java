@@ -44,7 +44,6 @@ public class AttivitaController {
 
 	@GetMapping("/centro/{id}/attivita")
 	private String attivitaCentro(@PathVariable("id") Long id, Model model) {
-
 		List<Attivita> attivita = this.attivitaService.findAllByCentroId(id);
 		model.addAttribute("attivita", attivita);
 
@@ -54,8 +53,6 @@ public class AttivitaController {
 	@PostMapping("/attivita/nuovaAttivita")
 	public String newAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, BindingResult bindingResult,
 			Model model) {
-
-		// this.attivitaValidator.validate(attivita, bindingResult);
 
 		if (this.attivitaService.existsByOra(attivita.getOraInizio())
 				&& this.attivitaService.existsByData(attivita.getData())) {
@@ -68,7 +65,6 @@ public class AttivitaController {
 			}
 		}
 		return "form-attivita";
-
 	}
 
 	@GetMapping("/attivita/nuovaAttivita")
@@ -79,18 +75,16 @@ public class AttivitaController {
 	}
 	
 	@GetMapping("/attivita/")
-	public String searchAttivita(@RequestParam("id") Long id, Model model) {
+	public String searchAttivita(@RequestParam("nome") String nome, Model model) {
 
-		Attivita attivita = this.attivitaService.findById(id);
+		Attivita attivita = this.attivitaService.findByNome(nome);
 
 		if (attivita==null) {
-
 			model.addAttribute("esistenza", "Attivita non trovata");
 			return attivita(model);
 		}
 		model.addAttribute("attivita", attivita);
-
-		return "mostra-allievo";
+		return "mostra-attivita";
 	}
 	
 	@GetMapping("/attivita/{id}/elimina")
@@ -110,6 +104,4 @@ public class AttivitaController {
 		}
 		return "home-page";
 	}
-	
-	
 }

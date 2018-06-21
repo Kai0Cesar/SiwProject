@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 
 <html lang="it" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="css/login-util.css">
 	<link rel="stylesheet" type="text/css" href="css/login-main.css">
-<!--===============================================================================================-->
+	
+	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" />
 </head>
 <body>
-	
-		<div class="container-login100">
-			<div class="wrap-login100">
-			
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" name="f" th:action="@{/login}" method="post">
-					<span class="login100-form-title">
-						Accedi
-					</span>
-
-					<div class="wrap-input100 validate-input m-b-16">
-						<input type="text" name="username" class="input100" placeholder="Email"/>
-						<span class="focus-input100"></span>
+	<div class="container-login100">
+		<div class="wrap-login100">
+			<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" name="f" th:action="@{/login}" method="post">
+				<span class="login100-form-title">
+					Accedi
+				</span>
+				<div class="wrap-input100 validate-input m-b-16">
+					<input type="text" name="username" class="input100" placeholder="Email"/>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input">
+					<input class="input100" type="password" name="password" placeholder="Password">
+					<span class="focus-input100"></span>
+				</div>
+				<div th:if="${param.error}" id="error">Email o password errati!</div>
+				<div th:if="${param.logout}" id="error">Hai effettuato il logout. A presto!</div>
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn">
+						Entra
+					</button>
+					<div id="login-with">Accedi con</div>
+					<div>
+						<p th:each="url : ${urls}">
+							<a class="client-logo" th:href="${url.value}"><img th:src="@{/images/google-plus.png}"/></a>
+						</p>
 					</div>
-
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						<span class="focus-input100"></span>
-					</div>
-					<div th:if="${param.error}" id="error">Email o password errati!</div>
-					<div th:if="${param.logout}" id="error">Hai effettuato il logout. A presto!</div>
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Entra
-						</button>
-					</div>
-				</form>
-			</div>
+				</div>
+			</form>
 		</div>
+	</div>
 	<div id="copyright">
 		<div class="container">
 			Design by: <a href="">Edoardo Montebelli [487882],</a> <a href="">Kaio Cesar Alves Reis [484997]</a>  
