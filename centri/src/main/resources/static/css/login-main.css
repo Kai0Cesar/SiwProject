@@ -169,7 +169,7 @@ iframe {
 
 .wrap-login100 {
   width: 500px;
-  height:500px;
+  height:520px;
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -217,7 +217,7 @@ iframe {
   align:middle;
   position:relative;
   top:35px;
-  right:50px;
+  right:35px;
 }
 
 #login-with {

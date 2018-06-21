@@ -96,6 +96,8 @@ public class Responsabile {
 	}
 	
 	public Long getCentroId() {
+		if(this.centro==null)
+			return (long) 0;
 		return this.centro.getId();
 	}
 
