@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="it" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 	<title>Centri</title>
 	<meta charset="UTF-8">
@@ -29,7 +29,7 @@
 					</div>
 				
 				<!-- Nav -->
-					<nav id="nav">
+			<nav id="nav">
 				<ul>							
 					<li class="active"><a href="/">Homepage</a></li>
 					<li sec:authorize="hasRole('ROLE_centro')"><a th:href="@{/{ruolo}/{id}/attivita(ruolo=${@responsabileService.corrente.ruolo},id=${@responsabileService.corrente.centroId})}">Attivita</a></li>
@@ -53,7 +53,7 @@
 					<form action="#" th:action="@{/allievo/}" method="get">
 							<span>Cerca centro</span> <span><input type="text" name="email" /></span> 
 							<span><button type="submit">Cerca</button></span>
-							<span><button type="button" onClick="location.href='./nuovoCentro'">+</button></span>
+							<span><button type="button" onClick="location.href='/nuovoCentro'">+</button></span>
 							<p id="error" th:text="${esistenza}"></p>    
 					</form>	
 				</div>
@@ -65,19 +65,19 @@
 								<th class="column2">Indirizzo</th>
 								<th class="column3">Email</th>
 								<th class="column4">Telefono</th>
-								<th class="column5">Capienza</th>
+								<th class="column5">Capienza Massima</th>
 								<th class="column6">Attività</th>
 							</tr>
 						</thead>
 						<tbody>
-								<tr th:each="centro : ${centri}">
-									<td class="column1"><span th:text="${centro.nome}"></span></td>
-									<td class="column2"><span th:text="${centro.indirizzo}"></span></td>
-									<td class="column3"><span th:text="${centro.email}"></span></td>
-									<td class="column4"><span th:text="${centro.telefono}"></span></td>
-									<td class="column4"><span th:text="${centro.capienzaMassima}"></span></td>
-									<td class="column6"><a th:href="@{/centro/{id}/attivita(id=${centro.id})}">Attivià</a></td>
-								</tr>
+							<tr th:each="centro : ${centri}">
+								<td class="column1"><span th:text="${centro.nome}"></span></td>
+								<td class="column2"><span th:text="${centro.indirizzo}"></span></td>
+								<td class="column3"><span th:text="${centro.email}"></span></td>
+								<td class="column4"><span th:text="${centro.telefono}"></span></td>
+								<td class="column4"><span th:text="${centro.capienzaMassima}"></span></td>
+								<td class="column6"><a th:href="@{/centro/{id}/attivita(id=${centro.id})}"><button type="button">Lista</button></a></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>

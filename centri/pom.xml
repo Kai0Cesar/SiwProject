@@ -79,7 +79,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-<<<<<<< Updated upstream
 
 		<dependency>
     		<groupId>org.springframework.security</groupId>
@@ -91,7 +90,6 @@
    			<artifactId>spring-security-oauth2-jose</artifactId>
 		</dependency>
 		
-=======
 		
 		
     <dependency>
@@ -99,7 +97,6 @@
         <artifactId>thymeleaf-extras-springsecurity4</artifactId>
     </dependency>
 
->>>>>>> Stashed changes
 	</dependencies>
 
 	<build>
